@@ -1,6 +1,272 @@
 version: "3.1"
-
 nlu:
+
+- lookup: body_type
+  examples: |
+    - saloon
+    - SUV
+    - hatchback
+    - estate
+    - coupe
+    - cabriolet
+- lookup: fuel
+  examples: |
+    - diesel
+    - petrol
+    - electricity
+- lookup: powertrain
+  examples: |
+    - combustion engine
+    - mild hybrid
+    - plug-in hybrid
+    - electric
+- lookup: transmission
+  examples: |
+    - automatic
+    - manual
+
+- synonym: saloon
+  examples: |
+    - long car
+- synonym: SUV
+  examples: |
+    - big car
+    - suv
+    - sports utility vehicle
+- synonym: hatchback
+  examples: |
+    - hatch
+    - small car
+    - city car
+- synonym: estate
+  examples: |
+    - family car
+- synonym: cabriolet
+  examples: |
+    - cabrio
+    - car without roof
+- synonym: combustion engine
+  examples: |
+    - combustion
+- synonym: mild hybrid
+  examples: |
+    - BAHV
+    - bahv
+- synonym: plug-in hybrid
+  examples: |
+    - PHEV
+    - phev
+    - plug in hybrid
+- synonym: automatic
+  examples: |
+    - auto
+- synonym: manual
+  examples: |
+    - el manuel
+
+- intent: buy_car
+  examples: |
+    - I want to buy a car
+    - I am interested in buying a car
+    - i'd like to buy a car
+    - i'd like a car
+    - i'd like a mercedes
+    - i want a car
+    - can i buy a car
+    - i want to buy a car
+    - i want to order a car
+    - I want a Mercedes
+    - I'd like a Mercedes-Benz
+    - i am interested in Mercedes-Benz car models
+    - give me a mercedes
+    - do you have a mercedes
+
+- intent: inform
+  examples: |
+    - i would like a [saloon](body_type) model
+    - I want a [saloon](body_type) Mercedes model
+    - i'd like a [saloon](body_type) car
+    - I want my car to be a [saloon](body_type)
+    - [saloon](body_type)
+    - i would like a [long car](body_type)
+    - I want a [long car](body_type) Mercedes car
+    - i'd like a [long car](body_type)
+    - I want my car to be a [long car](body_type)
+    - [long car](body_type)
+    - i would like a [SUV](body_type) model
+    - I want a [SUV](body_type) Mercedes model
+    - i'd like a [SUV](body_type) car
+    - I want my car to be a [SUV](body_type)
+    - [SUV](body_type)
+    - i would like a [suv](body_type) model
+    - I want a [suv](body_type) Mercedes model
+    - i'd like a [suv](body_type) car
+    - I want my car to be a [suv](body_type)
+    - [suv](body_type)
+    - i would like a [big car](body_type)
+    - I want a [big car](body_type)
+    - i'd like a [big car](body_type)
+    - [big car](body_type)
+    - i would like a [sports utility vehicle](body_type)
+    - I want a [sports utility vehicle](body_type)
+    - i'd like a [sports utility vehicle](body_type)
+    - [sports utility vehicle](body_type)
+    - i would like a [hatchback](body_type) model
+    - I want a [hatchback](body_type) Mercedes model
+    - i'd like a [hatchback](body_type) car
+    - I want my car to be a [hatchback](body_type)
+    - [hatchback](body_type)
+    - i would like a [small car](body_type)
+    - I want a [small car](body_type) Mercedes
+    - [small car](body_type)
+    - i would like a [hatch](body_type)
+    - I want a [hatch](body_type) Mercedes
+    - [hatch](body_type)
+    - i would like a [city car](body_type)
+    - I want a [city car](body_type) Mercedes
+    - [city car](body_type)
+    - i would like a [estate](body_type) model
+    - I want a [estate](body_type) Mercedes model
+    - i'd like a [estate](body_type) car
+    - I want my car to be a [estate](body_type)
+    - [estate](body_type)
+    - i would like a [family car](body_type)
+    - I want a [family car](body_type) Mercedes
+    - [family car](body_type)
+    - i would like a [coupe](body_type) model
+    - I want a [coupe](body_type) Mercedes model
+    - i'd like a [coupe](body_type) car
+    - I want my car to be a [coupe](body_type)
+    - [coupe](body_type)
+    - i would like a [cabriolet](body_type) model
+    - I want a [cabriolet](body_type) Mercedes model
+    - i'd like a [cabriolet](body_type) car
+    - I want my car to be a [cabriolet](body_type)
+    - [cabriolet](body_type)
+    - i would like a [cabrio](body_type)
+    - I want a [cabrio](body_type) Mercedes
+    - [cabrio](body_type)
+    - i would like a [car without roof](body_type)
+    - I want a [car without roof](body_type) Mercedes
+    - [car without roof](body_type)
+    - I want my car to be powered by [diesel](fuel)
+    - i'd like a [diesel](fuel) powered car
+    - i want a vehicle with a [diesel](fuel) engine
+    - i'm looking for a [diesel](fuel) engine
+    - I'm interested in a car that runs on [diesel](fuel)
+    - [diesel](fuel)
+    - I want my car to be powered by [petrol](fuel)
+    - i'd like a [petrol](fuel) powered car
+    - i want a vehicle with a [petrol](fuel) engine
+    - i'm looking for a [petrol](fuel) engine
+    - I'm interested in a car that runs on [petrol](fuel)
+    - [petrol](fuel)
+    - I want my car to be powered by [electricity](fuel)
+    - i'd like a [electricity](fuel) powered car
+    - i want a vehicle with a [electricity](fuel) engine
+    - i'm looking for a [electricity](fuel) engine
+    - I'm interested in a car that runs on [electricity](fuel)
+    - [electricity](fuel)
+    - I'm looking for a car with an internal [combustion engine](powertrain)
+    - i want a car with a [combustion engine](powertrain)
+    - i'd like a vehicle powered by a [combustion engine](powertrain)
+    - I would like a [combustion engine](powertrain) car
+    - I want a [combustion engine](powertrain) Mercedes
+    - I am looking for a Mercedes with a [combustion engine](powertrain)
+    - [combustion engine](powertrain)
+    - [combustion](powertrain)
+    - I'm looking for a car with an [mild hybrid](powertrain) engine
+    - i want a car with a [mild hybrid](powertrain)
+    - i'd like a vehicle powered by a [mild hybrid](powertrain)
+    - I would like a [mild hybrid](powertrain) car
+    - I want a [mild hybrid](powertrain) Mercedes
+    - I am looking for a Mercedes with a [mild hybrid](powertrain)
+    - [mild hybrid](powertrain)
+    - I'm looking for a car with an [BAHV](powertrain) engine
+    - i want a car with a [BAHV](powertrain)
+    - i'd like a vehicle powered by a [BAHV](powertrain)
+    - I would like a [BAHV](powertrain) car
+    - I want a [BAHV](powertrain) Mercedes
+    - I am looking for a Mercedes with a [BAHV](powertrain)
+    - [BAHV](powertrain)
+    - I'm looking for a car with an [bahv](powertrain) engine
+    - i want a car with a [bahv](powertrain)
+    - i'd like a vehicle powered by a [bahv](powertrain)
+    - I would like a [bahv](powertrain) car
+    - I want a [bahv](powertrain) Mercedes
+    - I am looking for a Mercedes with a [bahv](powertrain)
+    - [bahv](powertrain)
+    - I'm looking for a car with an [plug-in hybrid](powertrain) engine
+    - i want a car with a [plug-in hybrid](powertrain)
+    - i'd like a vehicle powered by a [plug-in hybrid](powertrain)
+    - I would like a [plug-in hybrid](powertrain) car
+    - I want a [plug-in hybrid](powertrain) Mercedes
+    - I am looking for a Mercedes with a [plug-in hybrid](powertrain)
+    - [plug-in hybrid](powertrain)
+    - I'm looking for a car with an [PHEV](powertrain) engine
+    - i want a car with a [PHEV](powertrain)
+    - i'd like a vehicle powered by a [PHEV](powertrain)
+    - I would like a [PHEV](powertrain) car
+    - I want a [PHEV](powertrain) Mercedes
+    - I am looking for a Mercedes with a [PHEV](powertrain)
+    - [PHEV](powertrain)
+    - I'm looking for a car with an [phev](powertrain) engine
+    - i want a car with a [phev](powertrain)
+    - i'd like a vehicle powered by a [phev](powertrain)
+    - I would like a [phev](powertrain) car
+    - I want a [phev](powertrain) Mercedes
+    - I am looking for a Mercedes with a [phev](powertrain)
+    - [phev](powertrain)
+    - I'm looking for a car with an [plug in hybrid](powertrain) engine
+    - i want a car with a [plug in hybrid](powertrain)
+    - i'd like a vehicle powered by a [plug in hybrid](powertrain)
+    - I would like a [plug in hybrid](powertrain) car
+    - I want a [plug in hybrid](powertrain) Mercedes
+    - I am looking for a Mercedes with a [plug in hybrid](powertrain)
+    - [plug in hybrid](powertrain)
+    - I'm looking for a car with an [electric](powertrain) engine
+    - i want a car with a [electric](powertrain) power
+    - i'd like a vehicle powered by an [electric](powertrain) battery
+    - I would like a [electric](powertrain) car
+    - I want a [electric](powertrain) Mercedes
+    - I am looking for a Mercedes with a [electric](powertrain) engine
+    - [electric](powertrain)
+    - I prefer a car with an [automatic](transmission) transmission
+    - I'm interested in an [automatic](transmission) car
+    - i want an [automatic](transmission) Mercedes
+    - i'd like a Mercedes model that is [automatic](transmission)
+    - I want a [automatic](transmission) shifting gear
+    - [automatic](transmission)
+    - I prefer a car with an [auto](transmission) transmission
+    - I'm interested in an [auto](transmission) car
+    - i want an [auto](transmission) Mercedes
+    - i'd like a Mercedes model that is [auto](transmission)
+    - I want a [auto](transmission) shifting gear
+    - [auto](transmission)
+    - I prefer a car with an [el manuel](transmission) transmission
+    - I'm interested in an [el manuel](transmission) car
+    - i want an [el manuel](transmission) Mercedes
+    - i'd like a Mercedes model that is [el manuel](transmission)
+    - I want a [el manuel](transmission) shifting gear
+    - [el manuel](transmission)
+    - I prefer a car with an [manual](transmission) transmission
+    - I'm interested in an [manual](transmission) car
+    - i want an [manual](transmission) Mercedes
+    - i'd like a Mercedes model that is [manual](transmission)
+    - [manual](transmission)
+
+- intent: stop
+  examples: |
+    - stop
+    - nevermind
+    - please stop
+    - i want to stop
+    - stop the form
+    - I don't want a car anymore
+    - I want to stop buying a car
+    - don't want a Mercedes anymore
+    - I want to stop looking for a Mercedes
+
 - intent: greet
   examples: |
     - hey
@@ -9,13 +275,15 @@ nlu:
     - hello there
     - good morning
     - good evening
-    - moin
     - hey there
     - let's go
     - hey dude
     - goodmorning
     - goodevening
     - good afternoon
+    - Hello
+    - Howdy
+    - yo
 
 - intent: goodbye
   examples: |
@@ -29,6 +297,7 @@ nlu:
     - see you around
     - bye bye
     - see you later
+    - hasta luego amigo
 
 - intent: affirm
   examples: |
@@ -38,6 +307,10 @@ nlu:
     - of course
     - that sounds good
     - correct
+    - sure
+    - sure why not
+    - yep
+    - yeah
 
 - intent: deny
   examples: |
@@ -48,40 +321,7 @@ nlu:
     - don't like that
     - no way
     - not really
-
-- intent: mood_great
-  examples: |
-    - perfect
-    - great
-    - amazing
-    - feeling like a king
-    - wonderful
-    - I am feeling very good
-    - I am great
-    - I am amazing
-    - I am going to save the world
-    - super stoked
-    - extremely good
-    - so so perfect
-    - so good
-    - so perfect
-
-- intent: mood_unhappy
-  examples: |
-    - my day was horrible
-    - I am sad
-    - I don't feel very well
-    - I am disappointed
-    - super sad
-    - I'm so sad
-    - sad
-    - very sad
-    - unhappy
-    - not good
-    - not very good
-    - extremly sad
-    - so saad
-    - so sad
+    - nope
 
 - intent: bot_challenge
   examples: |
@@ -89,3 +329,10 @@ nlu:
     - are you a human?
     - am I talking to a bot?
     - am I talking to a human?
+    - is this customer service?
+
+- intent: bot_query
+  examples: |
+    - what can you do?
+    - what models do you offer?
+    - who are you?
