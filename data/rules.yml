@@ -11,3 +11,37 @@ rules:
   steps:
   - intent: bot_challenge
   - action: utter_iamabot
+
+- rule: Explain capabilities when user asks
+  steps:
+  - intent: bot_query
+  - action: utter_capability
+
+- rule: Activate Car Form
+  steps:
+  - intent: buy_car
+  - action: car_form
+  - active_loop: car_form
+
+- rule: Submit Car Form
+  condition:
+  - active_loop: car_form
+  steps:
+  - action: car_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: utter_submit
+  - action: utter_car_slots
+
+- rule: Interruption in Car Form
+  condition:
+  # Condition that form is active.
+  - active_loop: car_form
+  steps:
+  # This unhappy path handles the case of an intent `bot_challenge`.
+  - intent: bot_challenge
+  - action: utter_iamabot
+  # Return to form after handling the `bot_challenge` intent
+  - action: car_form
+  - active_loop: car_form

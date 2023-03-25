@@ -1,34 +1,113 @@
-version: "3.1"
-
-intents:
-  - greet
-  - goodbye
-  - affirm
-  - deny
-  - mood_great
-  - mood_unhappy
-  - bot_challenge
-
-responses:
-  utter_greet:
-  - text: "Hey! How are you?"
-
-  utter_cheer_up:
-  - text: "Here is something to cheer you up:"
-    image: "https://i.imgur.com/nGF1K8f.jpg"
-
-  utter_did_that_help:
-  - text: "Did that help you?"
-
-  utter_happy:
-  - text: "Great, carry on!"
-
-  utter_goodbye:
-  - text: "Bye"
-
-  utter_iamabot:
-  - text: "I am a bot, powered by Rasa."
-
+version: '3.1'
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
+
+intents:
+- affirm
+- bot_challenge
+- bot_query
+- buy_car
+- deny
+- goodbye
+- greet
+- inform
+- stop
+- request_car_form
+
+entities:
+- body_type
+- fuel
+- powertrain
+- transmission
+
+forms:
+  car_form:
+    required_slots:
+    - body_type
+    - fuel
+    - powertrain
+    - transmission
+
+slots:
+  body_type: #slot 1
+    type: categorical
+    values:
+    - saloon
+    - SUV
+    - hatchback
+    - estate
+    - coupe
+    - cabriolet
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: body_type
+  fuel: #slot 2
+    type: categorical
+    values:
+    - diesel
+    - petrol
+    - electricity
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: fuel
+  powertrain: #slot 3
+    type: categorical
+    values:
+    - combustion engine
+    - electric
+    - mild hybrid
+    - plug-in hybrid
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: powertrain
+  transmission: #slot 4
+    type: categorical
+    values:
+    - automatic
+    - manual
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: transmission
+
+responses:
+  utter_greet:
+  - text: Hello, I am a virtual Mercedes-Benz car selling assitant. How can I help you?
+  utter_goodbye:
+  - text: Goodbye, thank you for using the Mercedes chatbot!
+  utter_iamabot:
+  - text: I am a bot here to support you with communicating with Mercedes-Benz UK. I am powered by Rasa.
+  utter_capability:
+  - text: I am a virtual assitant helping you choose the correct Mercedes model for you. There are currently over 100 models in production.
+  utter_submit:
+  - text: Thank you, your preferences have been recorded!
+  utter_car_slots:
+  - text: I am searching for a {body_type} Mercedes with {fuel} {powertrain} powertrain and {transmission} transmission.
+  utter_ask_continue:
+  - text: Are you sure you want to stop the form?
+  utter_ask_car_form_body_type:
+  - text: What body type are you looking for?
+  utter_ask_car_form_fuel:
+  - text: What fuel type are you looking for? If you would like an electric engine, type electricity.
+  utter_ask_car_form_powertrain:
+  - text: What powertrain are you looking for?
+  utter_ask_car_form_transmission:
+  - text: What transmission are you looking for?
+
+actions:
+- utter_ask_car_form_body_type
+- utter_ask_car_form_fuel
+- utter_ask_car_form_powertrain
+- utter_ask_car_form_transmission
+- utter_ask_continue
+- utter_capability
+- utter_car_slots
+- utter_goodbye
+- utter_greet
+- utter_iamabot
+- utter_submit
+- validate_car_form
