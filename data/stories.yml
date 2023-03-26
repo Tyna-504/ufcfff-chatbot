@@ -2,7 +2,7 @@ version: "3.1"
 
 stories:
 
-# buy car happy path
+# buy car happy path 1
 - story: user wants to buy a car and the form is successful
   steps:
   - intent: greet
@@ -17,17 +17,17 @@ stories:
   - slot_was_set:
     - body_type: SUV
   - slot_was_set:
-    - requested_slot: fuel
-  - slot_was_set:
-    - fuel: diesel
-  - slot_was_set:
-    - fuel: diesel
-  - slot_was_set:
     - requested_slot: powertrain
   - slot_was_set:
     - powertrain: mild hybrid
   - slot_was_set:
     - powertrain: mild hybrid
+  - slot_was_set:
+    - requested_slot: fuel
+  - slot_was_set:
+    - fuel: diesel
+  - slot_was_set:
+    - fuel: diesel
   - slot_was_set:
     - requested_slot: transmission
   - slot_was_set:
@@ -43,7 +43,7 @@ stories:
   - intent: goodbye
   - action: utter_goodbye
 
-# buy car happy path
+# buy car happy path 2
 - story: happy path 2
   steps:
   - intent: greet
@@ -58,23 +58,40 @@ stories:
   - slot_was_set:
     - body_type: coupe
   - slot_was_set:
-    - requested_slot: fuel
-  - slot_was_set:
-    - fuel: electricity
-  - slot_was_set:
-    - fuel: electricity
-  - slot_was_set:
     - requested_slot: powertrain
   - slot_was_set:
     - powertrain: electric
   - slot_was_set:
     - powertrain: electric
   - slot_was_set:
-    - requested_slot: transmission
+    - requested_slot: null
+  - active_loop: null
+  #- action: custom action for db query placeholder
+  - action: utter_submit
+  - action: utter_car_slots
+  - intent: goodbye
+  - action: utter_goodbye
+
+# buy car happy path 3
+- story: happy path 3 user wants electric car
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: buy_car
+  - action: car_form
+  - active_loop: car_form
   - slot_was_set:
-    - transmission: automatic
+    - requested_slot: body_type
   - slot_was_set:
-    - transmission: automatic
+    - body_type: saloon
+  - slot_was_set:
+    - body_type: saloon
+  - slot_was_set:
+    - requested_slot: powertrain
+  - slot_was_set:
+    - powertrain: electric
+  - slot_was_set:
+    - powertrain: electric
   - slot_was_set:
     - requested_slot: null
   - active_loop: null
@@ -154,17 +171,17 @@ stories:
   - slot_was_set:
     - body_type: saloon
   - slot_was_set:
-    - requested_slot: fuel
-  - slot_was_set:
-    - fuel: petrol
-  - slot_was_set:
-    - fuel: petrol
-  - slot_was_set:
     - requested_slot: powertrain
   - slot_was_set:
     - powertrain: plug-in hybrid
   - slot_was_set:
     - powertrain: plug-in hybrid
+  - slot_was_set:
+    - requested_slot: fuel
+  - slot_was_set:
+    - fuel: petrol
+  - slot_was_set:
+    - fuel: petrol
   - slot_was_set:
     - requested_slot: transmission
   - slot_was_set:
@@ -190,7 +207,7 @@ stories:
   - slot_was_set: 
     - body_type: SUV
   - slot_was_set:
-    - requested_slot: fuel
+    - requested_slot: powertrain
   - intent: stop
   - action: utter_ask_continue
   - intent: affirm
@@ -241,17 +258,17 @@ stories:
   - slot_was_set:
     - body_type: saloon
   - slot_was_set:
-    - requested_slot: fuel
-  - slot_was_set:
-    - fuel: petrol
-  - slot_was_set:
-    - fuel: petrol
-  - slot_was_set:
     - requested_slot: powertrain
   - slot_was_set:
     - powertrain: plug-in hybrid
   - slot_was_set:
     - powertrain: plug-in hybrid
+  - slot_was_set:
+    - requested_slot: fuel
+  - slot_was_set:
+    - fuel: petrol
+  - slot_was_set:
+    - fuel: petrol
   - slot_was_set:
     - requested_slot: transmission
   - slot_was_set:

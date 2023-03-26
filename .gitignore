@@ -1,4 +1,5 @@
 .rasa/cache
+.rasa\cache
 .rasa/cache/cache.db
 .rasa
 actions/__pycache__

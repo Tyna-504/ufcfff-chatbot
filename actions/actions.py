@@ -1,47 +1,36 @@
-# This files contains your custom actions which can be used to run
-# custom Python code.
-#
-# See this guide on how to implement these action:
-# https://rasa.com/docs/rasa/custom-actions
+# This files contains your custom actions which can be used to run custom Python code.
+# See this guide on how to implement these action: https://rasa.com/docs/rasa/custom-actions
 
-
-# This is a simple example for a custom action which utters "Hello World!"
-
-# from typing import Any, Text, Dict, List
-
-# from rasa_sdk import Action, Tracker
-# from rasa_sdk.executor import CollectingDispatcher
-#
-#
-# class ActionHelloWorld(Action):
-#
-#     def name(self) -> Text:
-#         return "action_hello_world"
-#
-#     def run(self, dispatcher: CollectingDispatcher,
-#             tracker: Tracker,
-#             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-#
-#         dispatcher.utter_message(text="Hello World!")
-#
-#         return []
-
-## My Custom Actions
-from typing import Any, Text, Dict, List
-
+from typing import Any, Text, Dict, List, Optional
 from rasa_sdk import Action, Tracker, FormValidationAction
 from rasa_sdk.events import SlotSet, EventType
 from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.types import DomainDict
 
 ALLOWED_CAR_BODY_TYPES = ["saloon", "suv", "hatchback", "estate", "coupe", "cabriolet"]
-ALLOWED_CAR_FUELS = ["diesel", "petrol", "electricity"]
 ALLOWED_CAR_POWERTRAINS = ["combustion engine", "mild hybrid", "plug-in hybrid", "electric"]
+ALLOWED_CAR_FUELS = ["diesel", "petrol"]
 ALLOWED_CAR_TRANSMISSIONS = ["automatic", "manual"]
 
 class ValidateCarForm(FormValidationAction):
     def name(self) -> Text:
         return "validate_car_form"
+    
+    # skip asking for 'fuel' and 'transmission' if powertrain is electric
+    async def required_slots(
+        self,
+        domain_slots: List[Text],
+        dispatcher: "CollectingDispatcher",
+        tracker: "Tracker",
+        domain: "DomainDict",
+    ) -> List[Text]:
+        powertrain_value = tracker.get_slot("powertrain")
+        updated_slots = domain_slots.copy()
+        if powertrain_value == "electric":
+            # If the user wants electric, do not request the 'fuel' and 'transmission' slots
+            updated_slots.remove("fuel")
+            updated_slots.remove("transmission")
+        return updated_slots
 
     # validate body_type slot
     def validate_body_type(
@@ -58,24 +47,6 @@ class ValidateCarForm(FormValidationAction):
             return {"body_type": None}
         dispatcher.utter_message(text=f"Ok, you are searching for a {slot_value} car.")
         return {"body_type": slot_value}
-
-    # validate fuel slot
-    def validate_fuel(
-        self,
-        slot_value: Any,
-        dispatcher: CollectingDispatcher,
-        tracker: Tracker,
-        domain: DomainDict,
-    ) -> Dict[Text, Any]:
-        """Validate `fuel` value."""
-
-        if slot_value.lower() not in ALLOWED_CAR_FUELS:
-            dispatcher.utter_message(
-                text=f"I don't recognise that fuel type. Our models are only avaiable as {'/'.join(ALLOWED_CAR_FUELS)}."
-            )
-            return {"fuel": None}
-        dispatcher.utter_message(text=f"Ok, you are searching for a {slot_value} car.")
-        return {"fuel": slot_value}
 
     # validate powertrain slot
     def validate_powertrain(
@@ -95,6 +66,24 @@ class ValidateCarForm(FormValidationAction):
         dispatcher.utter_message(text=f"Ok, you are searching for a {slot_value} car.")
         return {"powertrain": slot_value}
 
+    # validate fuel slot
+    def validate_fuel(
+        self,
+        slot_value: Any,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: DomainDict,
+    ) -> Dict[Text, Any]:
+        """Validate `fuel` value."""
+
+        if slot_value.lower() not in ALLOWED_CAR_FUELS:
+            dispatcher.utter_message(
+                text=f"I don't recognise that fuel type. Our models are only avaiable as {'/'.join(ALLOWED_CAR_FUELS)}."
+            )
+            return {"fuel": None}
+        dispatcher.utter_message(text=f"Ok, you are searching for a {slot_value} car.")
+        return {"fuel": slot_value}
+
     # validate transmission slot
     def validate_transmission(
         self,
@@ -112,3 +101,28 @@ class ValidateCarForm(FormValidationAction):
             return {"transmission": None}
         dispatcher.utter_message(text=f"Ok, you are searching for a {slot_value} car.")
         return {"transmission": slot_value}
+    
+# class UtterCarSlots(Action):
+
+#     def name(self) -> Text:
+#         return "utter_car_slots"
+
+#     def run(
+#         self,
+#         dispatcher: CollectingDispatcher,
+#         tracker: Tracker,
+#         domain: Dict[Text, Any]
+#         ) -> List[Dict[Text, Any]]:
+        
+#         powertrain_value = tracker.get_slot("powertrain")
+#         body_type_value = tracker.get_slot("body_type")
+#         fuel_value = tracker.get_slot("fuel")
+#         transmission_value = tracker.get_slot("transmission")
+        
+#         if powertrain_value == "electric":
+#             response = f"I am searching for an electric {body_type_value} Mercedes."
+#         else:
+#             response = f"I am searching for a {body_type_value} Mercedes with {fuel_value} {powertrain_value} powertrain and {transmission_value} transmission."
+        
+#         dispatcher.utter_message(response)
+#         return []
