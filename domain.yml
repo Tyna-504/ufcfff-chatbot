@@ -17,16 +17,16 @@ intents:
 
 entities:
 - body_type
-- fuel
 - powertrain
+- fuel
 - transmission
 
 forms:
   car_form:
     required_slots:
     - body_type
-    - fuel
     - powertrain
+    - fuel
     - transmission
 
 slots:
@@ -43,17 +43,7 @@ slots:
     mappings:
     - type: from_entity
       entity: body_type
-  fuel: #slot 2
-    type: categorical
-    values:
-    - diesel
-    - petrol
-    - electricity
-    influence_conversation: true
-    mappings:
-    - type: from_entity
-      entity: fuel
-  powertrain: #slot 3
+  powertrain: #slot 2
     type: categorical
     values:
     - combustion engine
@@ -63,7 +53,17 @@ slots:
     influence_conversation: true
     mappings:
     - type: from_entity
-      entity: powertrain
+      entity: powertrain 
+  fuel: #slot 3
+    type: categorical
+    values:
+    - diesel
+    - petrol
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: fuel
+
   transmission: #slot 4
     type: categorical
     values:
@@ -86,15 +86,34 @@ responses:
   utter_submit:
   - text: Thank you, your preferences have been recorded!
   utter_car_slots:
-  - text: I am searching for a {body_type} Mercedes with {fuel} {powertrain} powertrain and {transmission} transmission.
+    - condition:  # a conditional response
+        - type: slot
+          name: powertrain
+          value: "electric"
+      text: "I am searching for an electric {body_type} Mercedes."
+    - condition:
+        - type: slot
+          name: powertrain
+          value: "combustion engine"
+      text: "I am searching for a {body_type} Mercedes with {fuel} {powertrain} powertrain and {transmission} transmission."
+    - condition:
+        - type: slot
+          name: powertrain
+          value: "mild hybrid"
+      text: "I am searching for a {body_type} Mercedes with {fuel} {powertrain} powertrain and {transmission} transmission."
+    - condition:
+      - type: slot
+        name: powertrain
+        value: "plug-in hybrid"
+      text: "I am searching for a {body_type} Mercedes with {fuel} {powertrain} powertrain and {transmission} transmission."     
   utter_ask_continue:
   - text: Are you sure you want to stop the form?
   utter_ask_car_form_body_type:
   - text: What body type are you looking for?
-  utter_ask_car_form_fuel:
-  - text: What fuel type are you looking for? If you would like an electric engine, type electricity.
   utter_ask_car_form_powertrain:
   - text: What powertrain are you looking for?
+  utter_ask_car_form_fuel:
+  - text: What fuel type are you looking for?
   utter_ask_car_form_transmission:
   - text: What transmission are you looking for?
 

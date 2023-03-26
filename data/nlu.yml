@@ -9,17 +9,16 @@ nlu:
     - estate
     - coupe
     - cabriolet
-- lookup: fuel
-  examples: |
-    - diesel
-    - petrol
-    - electricity
 - lookup: powertrain
   examples: |
     - combustion engine
     - mild hybrid
     - plug-in hybrid
     - electric
+- lookup: fuel
+  examples: |
+    - diesel
+    - petrol
 - lookup: transmission
   examples: |
     - automatic
@@ -56,7 +55,7 @@ nlu:
   examples: |
     - PHEV
     - phev
-    - plug in hybrid
+    - plug in
 - synonym: automatic
   examples: |
     - auto
@@ -67,6 +66,7 @@ nlu:
 - intent: buy_car
   examples: |
     - I want to buy a car
+    - i would like a car
     - I am interested in buying a car
     - i'd like to buy a car
     - i'd like a car
@@ -161,12 +161,6 @@ nlu:
     - i'm looking for a [petrol](fuel) engine
     - I'm interested in a car that runs on [petrol](fuel)
     - [petrol](fuel)
-    - I want my car to be powered by [electricity](fuel)
-    - i'd like a [electricity](fuel) powered car
-    - i want a vehicle with a [electricity](fuel) engine
-    - i'm looking for a [electricity](fuel) engine
-    - I'm interested in a car that runs on [electricity](fuel)
-    - [electricity](fuel)
     - I'm looking for a car with an internal [combustion engine](powertrain)
     - i want a car with a [combustion engine](powertrain)
     - i'd like a vehicle powered by a [combustion engine](powertrain)
@@ -196,13 +190,13 @@ nlu:
     - I want a [bahv](powertrain) Mercedes
     - I am looking for a Mercedes with a [bahv](powertrain)
     - [bahv](powertrain)
-    - I'm looking for a car with an [plug-in hybrid](powertrain) engine
-    - i want a car with a [plug-in hybrid](powertrain)
-    - i'd like a vehicle powered by a [plug-in hybrid](powertrain)
-    - I would like a [plug-in hybrid](powertrain) car
-    - I want a [plug-in hybrid](powertrain) Mercedes
-    - I am looking for a Mercedes with a [plug-in hybrid](powertrain)
-    - [plug-in hybrid](powertrain)
+    - I'm looking for a car with an [plug-in](powertrain) hybrid engine
+    - i want a car with a [plug-in](powertrain) hybrid
+    - i'd like a vehicle powered by a [plug-in](powertrain)
+    - I would like a [plug-in](powertrain) car
+    - I want a [plug-in](powertrain) Mercedes
+    - I am looking for a Mercedes with a [plug-in](powertrain)
+    - [plug-in](powertrain)
     - I'm looking for a car with an [PHEV](powertrain) engine
     - i want a car with a [PHEV](powertrain)
     - i'd like a vehicle powered by a [PHEV](powertrain)
@@ -217,13 +211,13 @@ nlu:
     - I want a [phev](powertrain) Mercedes
     - I am looking for a Mercedes with a [phev](powertrain)
     - [phev](powertrain)
-    - I'm looking for a car with an [plug in hybrid](powertrain) engine
-    - i want a car with a [plug in hybrid](powertrain)
-    - i'd like a vehicle powered by a [plug in hybrid](powertrain)
-    - I would like a [plug in hybrid](powertrain) car
-    - I want a [plug in hybrid](powertrain) Mercedes
-    - I am looking for a Mercedes with a [plug in hybrid](powertrain)
-    - [plug in hybrid](powertrain)
+    - I'm looking for a car with an [plug in](powertrain) hybrid engine
+    - i want a car with a [plug in](powertrain)
+    - i'd like a vehicle powered by a [plug in](powertrain)
+    - I would like a [plug in](powertrain) car
+    - I want a [plug in](powertrain) Mercedes
+    - I am looking for a Mercedes with a [plug in](powertrain) hybrid engine
+    - [plug in](powertrain)
     - I'm looking for a car with an [electric](powertrain) engine
     - i want a car with a [electric](powertrain) power
     - i'd like a vehicle powered by an [electric](powertrain) battery
