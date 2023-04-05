@@ -17,11 +17,11 @@ stories:
   - slot_was_set:
     - body_type: SUV
   - slot_was_set:
-    - requested_slot: powertrain
+    - requested_slot: engine
   - slot_was_set:
-    - powertrain: mild hybrid
+    - engine: mild hybrid
   - slot_was_set:
-    - powertrain: mild hybrid
+    - engine: mild hybrid
   - slot_was_set:
     - requested_slot: fuel
   - slot_was_set:
@@ -58,11 +58,11 @@ stories:
   - slot_was_set:
     - body_type: coupe
   - slot_was_set:
-    - requested_slot: powertrain
+    - requested_slot: engine
   - slot_was_set:
-    - powertrain: electric
+    - engine: electric
   - slot_was_set:
-    - powertrain: electric
+    - engine: electric
   - slot_was_set:
     - requested_slot: null
   - active_loop: null
@@ -87,11 +87,11 @@ stories:
   - slot_was_set:
     - body_type: saloon
   - slot_was_set:
-    - requested_slot: powertrain
+    - requested_slot: engine
   - slot_was_set:
-    - powertrain: electric
+    - engine: electric
   - slot_was_set:
-    - powertrain: electric
+    - engine: electric
   - slot_was_set:
     - requested_slot: null
   - active_loop: null
@@ -171,11 +171,11 @@ stories:
   - slot_was_set:
     - body_type: saloon
   - slot_was_set:
-    - requested_slot: powertrain
+    - requested_slot: engine
   - slot_was_set:
-    - powertrain: plug-in hybrid
+    - engine: plug-in hybrid
   - slot_was_set:
-    - powertrain: plug-in hybrid
+    - engine: plug-in hybrid
   - slot_was_set:
     - requested_slot: fuel
   - slot_was_set:
@@ -207,7 +207,7 @@ stories:
   - slot_was_set: 
     - body_type: SUV
   - slot_was_set:
-    - requested_slot: powertrain
+    - requested_slot: engine
   - intent: stop
   - action: utter_ask_continue
   - intent: affirm
@@ -258,11 +258,11 @@ stories:
   - slot_was_set:
     - body_type: saloon
   - slot_was_set:
-    - requested_slot: powertrain
+    - requested_slot: engine
   - slot_was_set:
-    - powertrain: plug-in hybrid
+    - engine: plug-in hybrid
   - slot_was_set:
-    - powertrain: plug-in hybrid
+    - engine: plug-in hybrid
   - slot_was_set:
     - requested_slot: fuel
   - slot_was_set:

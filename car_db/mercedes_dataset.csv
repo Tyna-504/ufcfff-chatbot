@@ -1,4 +1,4 @@
-ID,make,model_class,model,body_type,fuel,engine_config,cylinders,engine_displ,engine_aspir,powertrain,seats,doors,trans,trans_type,drive,horsepower_hp,max_speed_mph,comb_fuel_consum_mpg,avg_energy_consum_mpge,range_EAER,start_price,insurance,emissions_standard,in_production
+ID,make,model_class,model,body_type,fuel,engine_config,cylinders,engine_displ,engine_aspir,engine,seats,doors,trans,trans_type,drive,horsepower_hp,max_speed_mph,comb_fuel_consum_mpg,avg_energy_consum_mpge,range_EAER,start_price,insurance,emissions_standard,in_production
 1,Mercedes-Benz,EQE,300,saloon,nan,nan,nan,nan,nan,electric,5,5,automatic,single-speed,RWD,245,130,nan,111,384,"74,345",50E,EU6,Y
 2,Mercedes-AMG,EQE,53 4MATIC+,saloon,nan,nan,nan,nan,nan,electric,5,5,automatic,single-speed,AWD,265,137,nan,93,290,"114,750",50E,EU6,Y
 3,Mercedes-Benz,EQS,450+,saloon,nan,nan,nan,nan,nan,electric,5,5,automatic,single-speed,RWD,333,130,nan,103,464,"105,610",50E,EU6,Y
