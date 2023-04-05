@@ -14,10 +14,11 @@ intents:
 - inform
 - stop
 - request_car_form
+# - query_body_type and other criteria
 
 entities:
 - body_type
-- powertrain
+- engine
 - fuel
 - transmission
 
@@ -25,7 +26,7 @@ forms:
   car_form:
     required_slots:
     - body_type
-    - powertrain
+    - engine
     - fuel
     - transmission
 
@@ -43,7 +44,7 @@ slots:
     mappings:
     - type: from_entity
       entity: body_type
-  powertrain: #slot 2
+  engine: #slot 2
     type: categorical
     values:
     - combustion engine
@@ -53,7 +54,7 @@ slots:
     influence_conversation: true
     mappings:
     - type: from_entity
-      entity: powertrain 
+      entity: engine 
   fuel: #slot 3
     type: categorical
     values:
@@ -88,39 +89,41 @@ responses:
   utter_car_slots:
     - condition:  # a conditional response
         - type: slot
-          name: powertrain
+          name: engine
           value: "electric"
       text: "I am searching for an electric {body_type} Mercedes."
     - condition:
         - type: slot
-          name: powertrain
+          name: engine
           value: "combustion engine"
-      text: "I am searching for a {body_type} Mercedes with {fuel} {powertrain} powertrain and {transmission} transmission."
+      text: "I am searching for a {body_type} Mercedes with {fuel} {engine} and {transmission} transmission."
     - condition:
         - type: slot
-          name: powertrain
+          name: engine
           value: "mild hybrid"
-      text: "I am searching for a {body_type} Mercedes with {fuel} {powertrain} powertrain and {transmission} transmission."
+      text: "I am searching for a {body_type} Mercedes with {fuel} {engine} engine and {transmission} transmission."
     - condition:
       - type: slot
-        name: powertrain
+        name: engine
         value: "plug-in hybrid"
-      text: "I am searching for a {body_type} Mercedes with {fuel} {powertrain} powertrain and {transmission} transmission."     
+      text: "I am searching for a {body_type} Mercedes with {fuel} {engine} engine and {transmission} transmission."     
   utter_ask_continue:
   - text: Are you sure you want to stop the form?
   utter_ask_car_form_body_type:
   - text: What body type are you looking for?
-  utter_ask_car_form_powertrain:
-  - text: What powertrain are you looking for?
+  utter_ask_car_form_engine:
+  - text: What engine are you looking for?
   utter_ask_car_form_fuel:
   - text: What fuel type are you looking for?
   utter_ask_car_form_transmission:
   - text: What transmission are you looking for?
+  utter_explain_powertain:
+  - text: engine is 
 
 actions:
 - utter_ask_car_form_body_type
 - utter_ask_car_form_fuel
-- utter_ask_car_form_powertrain
+- utter_ask_car_form_engine
 - utter_ask_car_form_transmission
 - utter_ask_continue
 - utter_capability
