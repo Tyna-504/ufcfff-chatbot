@@ -7,6 +7,8 @@ from rasa_sdk.events import SlotSet, EventType
 from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.types import DomainDict
 
+import sqlite3
+
 ALLOWED_CAR_BODY_TYPES = ["saloon", "suv", "hatchback", "estate", "coupe", "cabriolet"]
 ALLOWED_CAR_engineS = ["combustion engine", "mild hybrid", "plug-in hybrid", "electric"]
 ALLOWED_CAR_FUELS = ["diesel", "petrol"]
@@ -40,7 +42,7 @@ class ValidateCarForm(FormValidationAction):
         tracker: Tracker,
         domain: DomainDict,
     ) -> Dict[Text, Any]:
-        """Validate `body_type` value."""
+        """ Validate `body_type` value """
 
         if slot_value.lower() not in ALLOWED_CAR_BODY_TYPES:
             dispatcher.utter_message(text=f"Sorry, we only offer body types: saloon/SUV/hatchback/estate/coupe/cabriolet.")
@@ -56,7 +58,7 @@ class ValidateCarForm(FormValidationAction):
         tracker: Tracker,
         domain: DomainDict,
     ) -> Dict[Text, Any]:
-        """Validate `engine` value."""
+        """ Validate `engine` value """
 
         if slot_value.lower() not in ALLOWED_CAR_engineS:
             dispatcher.utter_message(
@@ -74,7 +76,7 @@ class ValidateCarForm(FormValidationAction):
         tracker: Tracker,
         domain: DomainDict,
     ) -> Dict[Text, Any]:
-        """Validate `fuel` value."""
+        """ Validate `fuel` value """
 
         if slot_value.lower() not in ALLOWED_CAR_FUELS:
             dispatcher.utter_message(
@@ -92,7 +94,7 @@ class ValidateCarForm(FormValidationAction):
         tracker: Tracker,
         domain: DomainDict,
     ) -> Dict[Text, Any]:
-        """Validate `transmission` value."""
+        """ Validate `transmission` value """
 
         if slot_value.lower() not in ALLOWED_CAR_TRANSMISSIONS:
             dispatcher.utter_message(
@@ -101,28 +103,58 @@ class ValidateCarForm(FormValidationAction):
             return {"transmission": None}
         dispatcher.utter_message(text=f"Ok, you are searching for a {slot_value} car.")
         return {"transmission": slot_value}
+
+# action for querying the db
+class QueryCar(Action):
+    def name(self) -> Text:
+        return "query_car"
     
-# class UtterCarSlots(Action):
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        
+        """
 
-#     def name(self) -> Text:
-#         return "utter_car_slots"
+        """
+        
+        conn = QueryCar.create_connection(db_file="./car_db/modelDB.db")
+        
+        slot_value = tracker.get_slot("body_type")
+        slot_name = "body_type"
 
-#     def run(
-#         self,
-#         dispatcher: CollectingDispatcher,
-#         tracker: Tracker,
-#         domain: Dict[Text, Any]
-#         ) -> List[Dict[Text, Any]]:
+        get_query_results = QueryCar.select_by_slot(conn, slot_name, slot_value)
+        dispatcher.utter_message(text=str(get_query_results))  
+        return[]
+
+    # define function that creates connection with the db
+    def create_connection(db_file):
+        """
+        Create a database connection to the SQLite database specified by the db_file
+        :param db_file: database file
+        :return: Connection object or None
+        """
+        conn = None
+        try:
+            conn = sqlite3.connect(db_file)
+        except sqlite3.Error as e:
+            print(e)
+        return conn
+
+    # define function that queries db using one slot and print out results
+    def select_by_slot(conn, slot_name, slot_value):
+        """
+        Query rows in the mercedesmodels table given a certain slot
+        :param conn: the Connection object
+        :return:
+        """
+        cur = conn.cursor()
+        cur.execute(f"""SELECT * FROM mercedesmodels WHERE {slot_name}='{slot_value}'""")
         
-#         engine_value = tracker.get_slot("engine")
-#         body_type_value = tracker.get_slot("body_type")
-#         fuel_value = tracker.get_slot("fuel")
-#         transmission_value = tracker.get_slot("transmission")
-        
-#         if engine_value == "electric":
-#             response = f"I am searching for an electric {body_type_value} Mercedes."
-#         else:
-#             response = f"I am searching for a {body_type_value} Mercedes with {fuel_value} {engine_value} engine and {transmission_value} transmission."
-        
-#         dispatcher.utter_message(response)
-#         return []
+        rows = cur.fetchall()
+
+        if len(list(rows)) < 1:
+            return "There are no models matching your query."
+        else:
+            model_list = [f"{row[2]} {row[3]} {row[4]} by {row[1]}" for row in rows]
+            model_list_text = "\n".join([f"- {model}" for model in model_list])
+            return f"Try the following models:\n{model_list_text}"

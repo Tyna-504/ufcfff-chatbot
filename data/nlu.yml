@@ -80,10 +80,14 @@ nlu:
     - i am interested in Mercedes-Benz car models
     - give me a mercedes
     - do you have a mercedes
+    - can you recommend me a car
+    - Please, make a recommendation for a Mercedes model
+    - Can you recommend a mercedes car to me
+    - gimme a car
 
 # - intent: ask_engine
 #   examples: |
-#     - What is a engine?
+#     - What is an engine?
 #     - I don't understand engine
 #     - i do not know what engine is
 #     - What does engine mean?
