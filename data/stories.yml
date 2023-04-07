@@ -37,9 +37,9 @@ stories:
   - slot_was_set:
     - requested_slot: null
   - active_loop: null
-  #- action: custom action for db query placeholder
   - action: utter_submit
   - action: utter_car_slots
+  - action: query_car # query db here
   - intent: goodbye
   - action: utter_goodbye
 
@@ -66,9 +66,9 @@ stories:
   - slot_was_set:
     - requested_slot: null
   - active_loop: null
-  #- action: custom action for db query placeholder
   - action: utter_submit
   - action: utter_car_slots
+  - action: query_car # query db here
   - intent: goodbye
   - action: utter_goodbye
 
@@ -95,9 +95,9 @@ stories:
   - slot_was_set:
     - requested_slot: null
   - active_loop: null
-  #- action: custom action for db query placeholder
   - action: utter_submit
   - action: utter_car_slots
+  - action: query_car # query db here
   - intent: goodbye
   - action: utter_goodbye
 
@@ -193,6 +193,7 @@ stories:
   - active_loop: null
   - action: utter_submit
   - action: utter_car_slots
+  - action: query_car # query db here
 
 # buy car unhappy path
 - story: interactive_story_3
@@ -280,3 +281,4 @@ stories:
   - active_loop: null
   - action: utter_submit
   - action: utter_car_slots
+  - action: query_car # query db here

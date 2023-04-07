@@ -14,7 +14,7 @@ intents:
 - inform
 - stop
 - request_car_form
-# - query_body_type and other criteria
+- query_car
 
 entities:
 - body_type
@@ -133,3 +133,4 @@ actions:
 - utter_iamabot
 - utter_submit
 - validate_car_form
+- query_car
