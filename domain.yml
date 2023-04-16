@@ -15,12 +15,17 @@ intents:
 - stop
 - request_car_form
 - query_car
+- ask_body_type
+- ask_engine
+- ask_fuel
+- ask_transmission
 
 entities:
 - body_type
 - engine
 - fuel
 - transmission
+#- model_name
 
 forms:
   car_form:
@@ -64,7 +69,6 @@ slots:
     mappings:
     - type: from_entity
       entity: fuel
-
   transmission: #slot 4
     type: categorical
     values:
@@ -74,6 +78,8 @@ slots:
     mappings:
     - type: from_entity
       entity: transmission
+  #model_name: #slot 5
+  #- type:
 
 responses:
   utter_greet:
@@ -117,8 +123,6 @@ responses:
   - text: What fuel type are you looking for?
   utter_ask_car_form_transmission:
   - text: What transmission are you looking for?
-  utter_explain_powertain:
-  - text: engine is 
 
 actions:
 - utter_ask_car_form_body_type
@@ -134,3 +138,4 @@ actions:
 - utter_submit
 - validate_car_form
 - query_car
+- dispatch_car_explanations

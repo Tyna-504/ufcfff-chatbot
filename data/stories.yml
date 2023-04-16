@@ -252,6 +252,7 @@ stories:
   - intent: stop
   - action: utter_ask_continue
   - intent: deny
+  - action: car_form
   - slot_was_set:
     - requested_slot: body_type
   - slot_was_set:
@@ -270,6 +271,65 @@ stories:
     - fuel: petrol
   - slot_was_set:
     - fuel: petrol
+  - slot_was_set:
+    - requested_slot: transmission
+  - slot_was_set:
+    - transmission: automatic
+  - slot_was_set:
+    - transmission: automatic
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_submit
+  - action: utter_car_slots
+  - action: query_car # query db here
+
+# buy car unhappy/happy path
+- story: user asks about form slots (form interruption)
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: buy_car
+  - action: car_form
+  - active_loop: car_form
+  - slot_was_set:
+    - requested_slot: body_type
+  - intent: ask_body_type
+  - action: dispatch_car_explanations
+  - action: car_form
+  - slot_was_set:
+    - requested_slot: body_type
+  - slot_was_set:
+    - body_type: saloon
+  - slot_was_set:
+    - body_type: saloon
+  - slot_was_set:
+    - requested_slot: engine
+  - intent: ask_engine
+  - action: dispatch_car_explanations
+  - action: car_form
+  - slot_was_set:
+    - requested_slot: engine
+  - slot_was_set:
+    - engine: plug-in hybrid
+  - slot_was_set:
+    - engine: plug-in hybrid
+  - slot_was_set:
+    - requested_slot: fuel
+  - intent: ask_fuel
+  - action: dispatch_car_explanations
+  - action: car_form
+  - slot_was_set:
+    - requested_slot: fuel
+  - slot_was_set:
+    - fuel: petrol
+  - slot_was_set:
+    - fuel: petrol
+  - slot_was_set:
+    - requested_slot: transmission
+  - intent: ask_fuel
+  - action: dispatch_car_explanations
+  - action: car_form
   - slot_was_set:
     - requested_slot: transmission
   - slot_was_set:

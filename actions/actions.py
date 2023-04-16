@@ -5,7 +5,6 @@ from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.types import DomainDict
 import sqlite3
 from fuzzywuzzy import process
-import collections
 
 ALLOWED_CAR_BODY_TYPES = ["saloon", "suv", "hatchback", "estate", "coupe", "cabriolet"]
 ALLOWED_CAR_ENGINES = ["combustion engine", "mild hybrid", "plug-in hybrid", "electric"]
@@ -44,7 +43,7 @@ class ValidateCarForm(FormValidationAction):
 
         if slot_value.lower() not in ALLOWED_CAR_BODY_TYPES:
             dispatcher.utter_message(
-                text=f"Sorry, we only offer body types: {'/'.join(ALLOWED_CAR_BODY_TYPES)}."
+                text=f"I don't recognise this body type. We only offer body types: {'/'.join(ALLOWED_CAR_BODY_TYPES)}."
                 )
             return {"body_type": None}
         dispatcher.utter_message(text=f"Ok, you are searching for a {slot_value} car.")
@@ -103,6 +102,33 @@ class ValidateCarForm(FormValidationAction):
             return {"transmission": None}
         dispatcher.utter_message(text=f"Ok, you are searching for a {slot_value} car.")
         return {"transmission": slot_value}
+    
+# Custom action to handle asking about required slots (form interruption)
+class DispatchCarExplanations(Action):
+    def name(self) -> Text:
+        return "dispatch_car_explanations"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        
+        # Get the current intent
+        current_intent = tracker.latest_message['intent']['name']
+
+        # Use a switch statement to dispatch different messages based on the intent
+        if current_intent == 'ask_body_type':
+            dispatcher.utter_message(
+                text=f"""We offer the following body types: {'/'.join(ALLOWED_CAR_BODY_TYPES)}.""")
+        elif current_intent == 'ask_engine':
+            dispatcher.utter_message(
+                text=f"""We offer the following engines: {'/'.join(ALLOWED_CAR_ENGINES)}.""")
+        elif current_intent == 'ask_fuel':
+            dispatcher.utter_message(
+                text=f"""We offer the following fuel types: {'/'.join(ALLOWED_CAR_FUELS)}.""")
+        elif current_intent == 'ask_transmission':
+            dispatcher.utter_message(
+                text=f"""We offer the following transmissions: {'/'.join(ALLOWED_CAR_TRANSMISSIONS)}. Please note that all models currently in production are automatic only.""")
+        return []        
 
 # Custom action for querying the db
 class QueryCar(Action):

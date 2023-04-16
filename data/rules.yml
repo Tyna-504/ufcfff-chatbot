@@ -35,14 +35,47 @@ rules:
   - action: utter_car_slots
   wait_for_user_input: false
 
-- rule: Interruption in Car Form
+- rule: Interruption in Car Form - bot challenge
   condition:
-  # Condition that form is active.
   - active_loop: car_form
   steps:
-  # This unhappy path handles the case of an intent `bot_challenge`.
   - intent: bot_challenge
   - action: utter_iamabot
-  # Return to form after handling the `bot_challenge` intent
+  - action: car_form
+  - active_loop: car_form
+
+- rule: Interruption in Car Form - asking info on slots (body_type)
+  condition:
+  - active_loop: car_form
+  steps:
+  - intent: ask_body_type
+  - action: dispatch_car_explanations
+  - action: car_form
+  - active_loop: car_form
+
+- rule: Interruption in Car Form - asking info on slots (engine)
+  condition:
+  - active_loop: car_form
+  steps:
+  - intent: ask_engine
+  - action: dispatch_car_explanations
+  - action: car_form
+  - active_loop: car_form
+
+- rule: Interruption in Car Form - asking info on slots (fuel)
+  condition:
+  - active_loop: car_form
+  steps:
+  - intent: ask_fuel
+  - action: dispatch_car_explanations
+  - action: car_form
+  - active_loop: car_form
+
+- rule: Interruption in Car Form - asking info on slots (transmission)
+  condition:
+  - active_loop: car_form
+  steps:
+  - intent: ask_transmission
+  - action: dispatch_car_explanations
   - action: car_form
   - active_loop: car_form

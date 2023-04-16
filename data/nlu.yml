@@ -56,6 +56,9 @@ nlu:
     - PHEV
     - phev
     - plug in
+- synonym: petrol
+  examples: |
+    - gas
 - synonym: automatic
   examples: |
     - auto
@@ -85,13 +88,53 @@ nlu:
     - Can you recommend a mercedes car to me
     - gimme a car
 
-# - intent: ask_engine
-#   examples: |
-#     - What is an engine?
-#     - I don't understand engine
-#     - i do not know what engine is
-#     - What does engine mean?
-#     - i dont understand what engine is
+- intent: ask_body_type
+  examples: |
+    - What is body type?
+    - I don't understand body type
+    - i do not know what body type is
+    - What does body type mean?
+    - explain body type
+    - what body types do you have
+    - Which body types do you offer
+    - i don't know what body types are available
+    - what body types are available
+
+- intent: ask_engine
+  examples: |
+    - What is an engine?
+    - I don't understand engine
+    - i do not know what engine is
+    - What does engine mean?
+    - explain engine
+    - what engines do you have
+    - Which engines do you offer
+    - i don't know which engines are available
+    - what engines are available
+
+- intent: ask_fuel
+  examples: |
+    - What is a fuel?
+    - I don't understand fuel
+    - i do not know what fuel is
+    - What does fuel mean?
+    - explain fuel
+    - what fuels do you have
+    - Which fuels do you offer
+    - i don't know which fuels are available
+    - what fuels are available
+
+- intent: ask_transmission
+  examples: |
+    - What is a transmission?
+    - I don't understand transmission
+    - i do not know what transmission is
+    - What does transmission mean?
+    - explain transmission
+    - what transmissions do you have
+    - Which transmissions do you offer
+    - i don't know which transmissions are available
+    - what transmissions are available
 
 - intent: inform
   examples: |
@@ -272,6 +315,7 @@ nlu:
     - I want to stop buying a car
     - don't want a Mercedes anymore
     - I want to stop looking for a Mercedes
+    - i changed my mind
 
 - intent: greet
   examples: |
@@ -290,6 +334,8 @@ nlu:
     - Hello
     - Howdy
     - yo
+    - what up
+    - whats up bro
 
 - intent: goodbye
   examples: |
@@ -342,3 +388,4 @@ nlu:
     - what can you do?
     - what models do you offer?
     - who are you?
+    - what am i talking to
