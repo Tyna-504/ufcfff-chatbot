@@ -19,12 +19,15 @@ intents:
 - ask_engine
 - ask_fuel
 - ask_transmission
+- query_model_class
+#- query_model
 
 entities:
 - body_type
 - engine
 - fuel
 - transmission
+- model_class_name
 #- model_name
 
 forms:
@@ -78,8 +81,6 @@ slots:
     mappings:
     - type: from_entity
       entity: transmission
-  #model_name: #slot 5
-  #- type:
 
 responses:
   utter_greet:
@@ -139,3 +140,4 @@ actions:
 - validate_car_form
 - query_car
 - dispatch_car_explanations
+- query_model_class

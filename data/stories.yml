@@ -342,3 +342,54 @@ stories:
   - action: utter_submit
   - action: utter_car_slots
   - action: query_car # query db here
+
+# happy path: query what models are in a given model class
+- story: user asks what models are in a given class
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: query_model_class
+  - action: query_model_class # query db here
+
+# happy path: user selects a preference and asks about a model class
+- story: user wants to buy a car and the form is successful
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: buy_car
+  - action: car_form
+  - active_loop: car_form
+  - slot_was_set:
+    - requested_slot: body_type
+  - slot_was_set:
+    - body_type: SUV
+  - slot_was_set:
+    - body_type: SUV
+  - slot_was_set:
+    - requested_slot: engine
+  - slot_was_set:
+    - engine: mild hybrid
+  - slot_was_set:
+    - engine: mild hybrid
+  - slot_was_set:
+    - requested_slot: fuel
+  - slot_was_set:
+    - fuel: diesel
+  - slot_was_set:
+    - fuel: diesel
+  - slot_was_set:
+    - requested_slot: transmission
+  - slot_was_set:
+    - transmission: automatic
+  - slot_was_set:
+    - transmission: automatic
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_submit
+  - action: utter_car_slots
+  - action: query_car # query db here
+  - intent: query_model_class
+  - action: query_model_class # query db here
+  - intent: goodbye
+  - action: utter_goodbye
