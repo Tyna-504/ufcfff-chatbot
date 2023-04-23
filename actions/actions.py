@@ -112,6 +112,11 @@ class DispatchCarExplanations(Action):
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         
+        """
+        Retrieves the current intent from the tracker, dispatches appropriate message to the user.
+        Handles form interruption for when user is asking about the requested slots.
+        """
+        
         # Get the current intent
         current_intent = tracker.latest_message['intent']['name']
 
@@ -129,70 +134,9 @@ class DispatchCarExplanations(Action):
             dispatcher.utter_message(
                 text=f"""We offer the following transmissions: {'/'.join(ALLOWED_CAR_TRANSMISSIONS)}. Please note that all models currently in production are automatic only.""")
         return []        
-
-# Custom action for querying the db
-class QueryCar(Action):
-    def name(self) -> Text:
-        return "query_car"
     
-    def run(self, dispatcher: CollectingDispatcher,
-            tracker: Tracker,
-            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        
-        """
-        Runs a query using all slots. Finds a match for all if possible, otherwise a match for the
-        only body_type, engine, fuel, transmission, in that order. Output is utterance directly to the
-        user with all matching rows, in a bullet point format.
-        """
-        
-        # Establish connection
-        conn = QueryCar.create_connection(db_file="./car_db/modelDB.db")
-        
-        # Retrieve slot values and get matching results
-        slots = {
-            "body_type": tracker.get_slot("body_type"),
-            "engine": tracker.get_slot("engine"),
-            "fuel": tracker.get_slot("fuel"),
-            "trans": tracker.get_slot("transmission")
-        }  # dictionary to store slot values
-
-        query_results_intersection = None  # initialize intersection results to None
-
-        # Loop through each slot and retrieve slot value and query results
-        for slot_name, slot_value in slots.items():
-            if slot_value:  # skip if slot value is empty
-                query_results = QueryCar.select_by_slot(conn=conn, slot_name=slot_name, slot_value=slot_value)
-                if query_results_intersection is None:
-                    query_results_intersection = set(query_results)
-                else:
-                    query_results_intersection &= set(query_results)
-
-        # Convert query results to list
-        if query_results_intersection is not None:
-            query_results_intersection = list(query_results_intersection)
-
-        # Return no match if no right info in the db
-        no_match_text = "I couldn't find exactly what you wanted, but you might like these models."
-
-        # Return info for intersection, or fallback to individual slots or nothing
-        if query_results_intersection and len(query_results_intersection) > 0:
-            return_text = QueryCar.rows_info_as_text(query_results_intersection)
-        elif any(len(slot_results) > 0 for slot_results in slots.values()):
-            # If there's no intersection, check if any individual slot has results and fallback to that slot's results
-            combined_results = []
-            for slot_name, slot_value in slots.items():
-                if slot_value:
-                    combined_results.extend(QueryCar.select_by_slot(conn=conn, slot_name=slot_name, slot_value=slot_value))
-            return_text = no_match_text + QueryCar.rows_info_as_text(combined_results)
-        else:
-            return_text = QueryCar.rows_info_as_text(query_results_intersection)
-
-
-        #add fuzzy matching
-        #slot_value = QueryCar.get_closest_value(conn=conn, slot_name=slot_name, slot_value=slot_value)[0]
-
-        dispatcher.utter_message(text=str(return_text))  
-        return[]
+# Custom action for connecting to db and returning results
+class DbQuerying:
 
     # Define function that creates connection with the db
     def create_connection(db_file):
@@ -207,7 +151,7 @@ class QueryCar(Action):
         except sqlite3.Error as e:
             print(e)
         return conn
-    
+
     # Define funcrion for fuzzy matching
     def get_closest_value(conn, slot_name, slot_value): 
         """
@@ -222,7 +166,7 @@ class QueryCar(Action):
 
         top_match = process.extractOne(slot_value, column_values)
 
-        return(top_match[0])        
+        return(top_match[0])
 
     # Define function that queries db using one slot and print out results
     def select_by_slot(conn, slot_name, slot_value):
@@ -238,9 +182,72 @@ class QueryCar(Action):
         rows = cur.fetchall()
         return(rows)
 
+# Custom action for querying the db - recommendations
+class QueryCar(Action):
+    def name(self) -> Text:
+        return "query_car"
+    
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        
+        """
+        Runs a query using all slots. Finds a match for all if possible, otherwise a match for the
+        only body_type, engine, fuel, transmission, in that order. Output is utterance directly to the
+        user with all matching rows, in a bullet point format.
+        """
+        
+        # Establish connection
+        conn = DbQuerying.create_connection(db_file="./car_db/modelDB.db")
+        
+        # Retrieve slot values and get matching results
+        slots = {
+            "body_type": tracker.get_slot("body_type"),
+            "engine": tracker.get_slot("engine"),
+            "fuel": tracker.get_slot("fuel"),
+            "trans": tracker.get_slot("transmission")
+        }  # dictionary to store slot values
+
+        query_results_intersection = None  # initialize intersection results to None
+
+        # Loop through each slot and retrieve slot value and query results
+        for slot_name, slot_value in slots.items():
+            if slot_value:  # skip if slot value is empty
+                query_results = DbQuerying.select_by_slot(conn=conn, slot_name=slot_name, slot_value=slot_value)
+                if query_results_intersection is None:
+                    query_results_intersection = set(query_results)
+                else:
+                    query_results_intersection &= set(query_results)
+
+        # Convert query results to list
+        if query_results_intersection is not None:
+            query_results_intersection = list(query_results_intersection)
+
+        # Return no match if no right info in the db
+        no_match_text = "I couldn't find exactly what you wanted, but you might like these models."
+
+        # Return info for intersection, or fallback to individual slots or nothing
+        if query_results_intersection and len(query_results_intersection) > 0:
+            return_text = QueryCar.rows_info_as_text_recommend(query_results_intersection)
+        elif any(len(slot_results) > 0 for slot_results in slots.values()):
+            # If there's no intersection, check if any individual slot has results and fallback to that slot's results
+            combined_results = []
+            for slot_name, slot_value in slots.items():
+                if slot_value:
+                    combined_results.extend(DbQuerying.select_by_slot(conn=conn, slot_name=slot_name, slot_value=slot_value))
+            return_text = no_match_text + QueryCar.rows_info_as_text_recommend(combined_results)
+        else:
+            return_text = QueryCar.rows_info_as_text_recommend(query_results_intersection)
+
+
+        #add fuzzy matching
+        #slot_value = DbQuerying.get_closest_value(conn=conn, slot_name=slot_name, slot_value=slot_value)[0]
+
+        dispatcher.utter_message(text=str(return_text))  
+        return[]       
         
     # Define function to turn query results into text
-    def rows_info_as_text(rows):
+    def rows_info_as_text_recommend(rows):
         """
         Return all the rows passed in as a human-readable text. 
         If there are no rows, return no match.
@@ -248,7 +255,49 @@ class QueryCar(Action):
         if len(list(rows)) < 1:
             return "There are no models matching your query."
         else:
+            # get model_class, model, body_type, make
             model_list = [f"{row[2]} {row[3]} {row[4]} by {row[1]}" for row in rows]
             model_list_text = "\n".join([f"- {model}" for model in model_list])
             return f"Try the following models:\n{model_list_text}"
+        
+# Custom action for querying the db - model class
+class QueryModelClass(Action):
+
+    def name(self) -> Text:
+        return "query_model_class"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        """
+        Runs a query using only the model_class column with fuzzy matching. 
+        Outputs an utterance to the user w/ the relevent information
+        """
+        conn = DbQuerying.create_connection(db_file="./car_db/modelDB.db")
+
+
+        slot_value = tracker.latest_message['entities'][0]['value'] #get entity 'car_model_class'
+        slot_name = "model_class"
+        
+        # add fuzzy matching
+        slot_value = DbQuerying.get_closest_value(conn=conn, slot_name=slot_name,slot_value=slot_value)[0]
+
+        get_query_results = DbQuerying.select_by_slot(conn=conn,slot_name=slot_name,slot_value=slot_value)
+        return_text = QueryModelClass.rows_info_as_text_class(get_query_results)
+        dispatcher.utter_message(text=str(return_text))
+        return[]
+    
+    # Define function to turn query results into text
+    def rows_info_as_text_class(rows):
+        """
+        Return all the rows passed in as a human-readable text. 
+        If there are no rows, return no match.
+        """
+        if len(list(rows)) < 1:
+            return "There are no models for the specified model class."
+        else:
+            # get model, body_type, make
+            model_list = [f"{row[3]} {row[4]} by {row[1]}" for row in rows]
+            model_list_text = "\n".join([f"- {model}" for model in model_list])
+            return f"We offer the following models for the given class:\n{model_list_text}"
 

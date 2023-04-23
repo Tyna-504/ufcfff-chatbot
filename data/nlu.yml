@@ -23,6 +23,28 @@ nlu:
   examples: |
     - automatic
     - manual
+- lookup: model_class_name
+  examples: |
+    - A-Class
+    - B-Class
+    - C-Class
+    - E-Class
+    - S-Class
+    - G-Class
+    - EQA
+    - EQB
+    - EQC
+    - EQE
+    - EQS
+    - GLA
+    - GLB
+    - GLC
+    - GLE
+    - GLS
+    - CLA
+    - CLS
+    - GT
+    - SL
 
 - synonym: saloon
   examples: |
@@ -87,6 +109,7 @@ nlu:
     - Please, make a recommendation for a Mercedes model
     - Can you recommend a mercedes car to me
     - gimme a car
+    - recommend a car
 
 - intent: ask_body_type
   examples: |
@@ -135,6 +158,204 @@ nlu:
     - Which transmissions do you offer
     - i don't know which transmissions are available
     - what transmissions are available
+
+# - intent: query_model
+#   examples: |
+#     - can you tell me about [A-Class](model_class)
+#     - what is the [A-Class](model_class)
+#     - provide more detail about [A-Class](model_class)
+#     - tell me about [A-Class](model_class)
+#     - do you have more information about [A-Class](model_class)
+#     - can you provide more information about [A-Class](model_class)
+#     - can you tell me about [B-class](model_class)
+#     - what is the [B-class](model_class)
+#     - provide more detail about [B-class](model_class)
+#     - tell me about [B-class](model_class)
+#     - do you have more information about [B-class](model_class)
+#     - can you provide more information about [B-class](model_class)
+#     - can you tell me about [C-Class](model_class)
+#     - what is the [C-Class](model_class)
+#     - provide more detail about [C-Class](model_class)
+#     - tell me about [C-Class](model_class)
+#     - do you have more information about [C-Class](model_class)
+#     - can you provide more information about [C-Class](model_class)
+#     - can you tell me about [E-Class](model_class)
+#     - what is the [E-Class](model_class)
+#     - provide more detail about [E-Class](model_class)
+#     - tell me about [E-Class](model_class)
+#     - do you have more information about [E-Class](model_class)
+#     - can you provide more information about [E-Class](model_class)
+#     - can you tell me about [S-Class](model_class)
+#     - what is the [S-Class](model_class)
+#     - provide more detail about [S-Class](model_class)
+#     - tell me about [S-Class](model_class)
+#     - do you have more information about [S-Class](model_class)
+#     - can you provide more information about [S-Class](model_class)
+#     - can you tell me about [G-Class](model_class)
+#     - what is the [G-Class](model_class)
+#     - provide more detail about [G-Class](model_class)
+#     - tell me about [G-Class](model_class)
+#     - do you have more information about [G-Class](model_class)
+#     - can you provide more information about [G-Class](model_class)
+#     - can you tell me about [EQA](model_class)
+#     - what is the [EQA](model_class)
+#     - provide more detail about [EQA](model_class)
+#     - tell me about [EQA](model_class)
+#     - do you have more information about [EQA](model_class)
+#     - can you provide more information about [EQA](model_class)
+#     - can you tell me about [EQB](model_class)
+#     - what is the [EQB](model_class)
+#     - provide more detail about [EQB](model_class)
+#     - tell me about [EQB](model_class)
+#     - do you have more information about [EQB](model_class)
+#     - can you provide more information about [EQB](model_class)
+#     - can you tell me about [EQC](model_class)
+#     - what is the [EQC](model_class)
+#     - provide more detail about [EQC](model_class)
+#     - tell me about [EQC](model_class)
+#     - do you have more information about [EQC](model_class)
+#     - can you provide more information about [EQC](model_class)
+#     - can you tell me about [EQE](model_class)
+#     - what is the [EQE](model_class)
+#     - provide more detail about [EQE](model_class)
+#     - tell me about [EQE](model_class)
+#     - do you have more information about [EQE](model_class)
+#     - can you provide more information about [EQE](model_class)
+#     - can you tell me about [EQS](model_class)
+#     - what is the [EQS](model_class)
+#     - provide more detail about [EQS](model_class)
+#     - tell me about [EQS](model_class)
+#     - do you have more information about [EQS](model_class)
+#     - can you provide more information about [EQS](model_class)
+#     - can you tell me about [GLA](model_class)
+#     - what is the [GLA](model_class)
+#     - provide more detail about [GLA](model_class)
+#     - tell me about [GLA](model_class)
+#     - do you have more information about [GLA](model_class)
+#     - can you provide more information about [GLA](model_class)
+#     - can you tell me about [GLB](model_class)
+#     - what is the [GLB](model_class)
+#     - provide more detail about [GLB](model_class)
+#     - tell me about [GLB](model_class)
+#     - do you have more information about [GLB](model_class)
+#     - can you provide more information about [GLB](model_class)
+#     - can you tell me about [GLC](model_class)
+#     - what is the [GLC](model_class)
+#     - provide more detail about [GLC](model_class)
+#     - tell me about [GLC](model_class)
+#     - do you have more information about [GLC](model_class)
+#     - can you provide more information about [GLC](model_class)
+#     - can you tell me about [GLE](model_class)
+#     - what is the [GLE](model_class)
+#     - provide more detail about [GLE](model_class)
+#     - tell me about [GLE](model_class)
+#     - do you have more information about [GLE](model_class)
+#     - can you provide more information about [GLE](model_class)
+#     - can you tell me about [GLS](model_class)
+#     - what is the [GLS](model_class)
+#     - provide more detail about [GLS](model_class)
+#     - tell me about [GLS](model_class)
+#     - do you have more information about [GLS](model_class)
+#     - can you provide more information about [GLS](model_class)
+#     - can you tell me about [CLA](model_class)
+#     - what is the [CLA](model_class)
+#     - provide more detail about [CLA](model_class)
+#     - tell me about [CLA](model_class)
+#     - do you have more information about [CLA](model_class)
+#     - can you provide more information about [CLA](model_class)
+#     - can you tell me about [CLS](model_class)
+#     - what is the [CLS](model_class)
+#     - provide more detail about [CLS](model_class)
+#     - tell me about [CLS](model_class)
+#     - do you have more information about [CLS](model_class)
+#     - can you provide more information about [CLS](model_class)
+#     - can you tell me about [GT](model_class)
+#     - what is the [GT](model_class)
+#     - provide more detail about [GT](model_class)
+#     - tell me about [GT](model_class)
+#     - do you have more information about [GT](model_class)
+#     - can you provide more information about [GT](model_class)
+#     - can you tell me about [SL](model_class)
+#     - what is the [SL](model_class)
+#     - provide more detail about [SL](model_class)
+#     - tell me about [SL](model_class)
+#     - do you have more information about [SL](model_class)
+#     - can you provide more information about [SL](model_class)
+
+- intent: query_model_class
+  examples: |
+    - What [A-Class](model_class_name) models do you have
+    - which [A-Class](model_class_name) are available
+    - what [A-Class](model_class_name) can you offer
+    - which [A-Class](model_class_name) you got
+    - What [B-Class](model_class_name) models do you have
+    - which [B-Class](model_class_name) are available
+    - what [B-Class](model_class_name) can you offer
+    - which [B-Class](model_class_name) you got
+    - What [C-Class](model_class_name) models do you have
+    - which [C-Class](model_class_name) are available
+    - what [C-Class](model_class_name) can you offer
+    - which [C-Class](model_class_name) you got
+    - What [E-Class](model_class_name) models do you have
+    - which [E-Class](model_class_name) are available
+    - what [E-Class](model_class_name) can you offer
+    - which [E-Class](model_class_name) you got
+    - What [S-Class](model_class_name) models do you have
+    - which [S-Class](model_class_name) are available
+    - what [S-Class](model_class_name) can you offer
+    - which [S-Class](model_class_name) you got
+    - What [G-Class](model_class_name) models do you have
+    - which [G-Class](model_class_name) are available
+    - what [G-Class](model_class_name) can you offer
+    - which [G-Class](model_class_name) you got
+    - What [EQA](model_class_name) models do you have
+    - which [EQA](model_class_name) are available
+    - what [EQA](model_class_name) can you offer
+    - which [EQA](model_class_name) you got
+    - What [EQB](model_class_name) models do you have
+    - which [EQB](model_class_name) are available
+    - what [EQB](model_class_name) can you offer
+    - which [EQB](model_class_name) you got
+    - What [EQC](model_class_name) models do you have
+    - which [EQC](model_class_name) are available
+    - what [EQC](model_class_name) can you offer
+    - which [EQC](model_class_name) you got
+    - What [EQE](model_class_name) models do you have
+    - which [EQE](model_class_name) are available
+    - what [EQE](model_class_name) can you offer
+    - which [EQE](model_class_name) you got
+    - What [EQS](model_class_name) models do you have
+    - which [EQS](model_class_name) are available
+    - what [EQS](model_class_name) can you offer
+    - which [EQS](model_class_name) you got
+    - What [GLA](model_class_name) models do you have
+    - which [GLA](model_class_name) are available
+    - what [GLA](model_class_name) can you offer
+    - which [GLA](model_class_name) you got
+    - What [GLB](model_class_name) models do you have
+    - which [GLB](model_class_name) are available
+    - what [GLB](model_class_name) can you offer
+    - which [GLB](model_class_name) you got
+    - What [GLC](model_class_name) models do you have
+    - which [GLC](model_class_name) are available
+    - what [GLC](model_class_name) can you offer
+    - which [GLC](model_class_name) you got
+    - What [GLE](model_class_name) models do you have
+    - which [GLE](model_class_name) are available
+    - what [GLE](model_class_name) can you offer
+    - which [GLE](model_class_name) you got
+    - What [GLS](model_class_name) models do you have
+    - which [GLS](model_class_name) are available
+    - what [GLS](model_class_name) can you offer
+    - which [GLS](model_class_name) you got
+    - What [GT](model_class_name) models do you have
+    - which [GT](model_class_name) are available
+    - what [GT](model_class_name) can you offer
+    - which [GT](model_class_name) you got
+    - What [SL](model_class_name) models do you have
+    - which [SL](model_class_name) are available
+    - what [SL](model_class_name) can you offer
+    - which [SL](model_class_name) you got
 
 - intent: inform
   examples: |
