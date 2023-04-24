@@ -393,3 +393,19 @@ stories:
   - action: query_model_class # query db here
   - intent: goodbye
   - action: utter_goodbye
+
+# happy path: user wants to get more details on a model
+- story: user wants to get more details on a model
+  steps:
+  - intent: query_model
+  - action: model_form
+  - active_loop: model_form
+  - slot_was_set:
+    - requested_slot: model_name
+  - slot_was_set:
+    - model_name: "A 100 d"
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_query_model
+  - action: action_reset_slot

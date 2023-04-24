@@ -300,4 +300,62 @@ class QueryModelClass(Action):
             model_list = [f"{row[3]} {row[4]} by {row[1]}" for row in rows]
             model_list_text = "\n".join([f"- {model}" for model in model_list])
             return f"We offer the following models for the given class:\n{model_list_text}"
+        
+# Custom action for querying the db - model
+class QueryModel(Action):
 
+    def name(self) -> Text:
+        return "action_query_model"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        """
+        Runs a query using only the model column with fuzzy matching. 
+        Outputs an utterance to the user w/ the relevent information
+        """
+        conn = DbQuerying.create_connection(db_file="./car_db/modelDB.db")
+
+
+        slot_value = tracker.get_slot("model_name")
+        slot_name = "model"
+        
+        # add fuzzy matching
+        slot_value = DbQuerying.get_closest_value(conn=conn, slot_name=slot_name,slot_value=slot_value)[0]
+
+        get_query_results = DbQuerying.select_by_slot(conn=conn,slot_name=slot_name,slot_value=slot_value)
+        return_text = QueryModel.rows_info_as_text_model(get_query_results)
+        dispatcher.utter_message(text=str(return_text))
+        return[]
+    
+    # Define function to turn query results into text
+    def rows_info_as_text_model(rows):
+        """
+        Return all the rows passed in as a human-readable text. 
+        If there are no rows, return no match.
+        """
+        if len(list(rows)) < 1:
+            return "There are no models matching your query."
+        else:
+            model_list = []
+            for row in rows:
+                if row[10] == "electric":
+                    model_list.append(f"""The {row[3]} is a {row[4]}, powered by an {row[10]} engine. It has {row[12]} doors and {row[11]} seats, and {row[13]} {row[14]} transmission.""")
+                else:
+                    model_list.append(f"""The {row[3]} is a {row[4]} powered by {row[8]} litre {row[6]} {row[7]} cylinder {row[9]} {row[10]}. It has {row[12]} doors and {row[11]} seats, and {row[13]} {row[14]} transmission.""")
+            model_list_text = "\n".join([f"- {model}" for model in model_list])
+            if len(rows) > 1:
+                return f"""This model is available in multiple body types:\n{model_list_text}"""
+            else:
+                return model_list_text
+                
+# Custom action to clear the model_name slot after using it
+class ResetSlotAction(Action):
+    def name(self) -> Text:
+        return "action_reset_slot"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        return [SlotSet("model_name", None)]

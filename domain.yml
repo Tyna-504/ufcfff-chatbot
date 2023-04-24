@@ -20,7 +20,7 @@ intents:
 - ask_fuel
 - ask_transmission
 - query_model_class
-#- query_model
+- query_model
 
 entities:
 - body_type
@@ -28,7 +28,6 @@ entities:
 - fuel
 - transmission
 - model_class_name
-#- model_name
 
 forms:
   car_form:
@@ -37,6 +36,9 @@ forms:
     - engine
     - fuel
     - transmission
+  model_form:
+    required_slots:
+    - model_name
 
 slots:
   body_type: #slot 1
@@ -81,6 +83,14 @@ slots:
     mappings:
     - type: from_entity
       entity: transmission
+  model_name: #slot 5
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_text
+      conditions:
+        - active_loop: model_form
+          requested_slot: model_name
 
 responses:
   utter_greet:
@@ -124,6 +134,8 @@ responses:
   - text: What fuel type are you looking for?
   utter_ask_car_form_transmission:
   - text: What transmission are you looking for?
+  utter_ask_model_name:
+  - text: Please provide the full model name you would like to know more about.
 
 actions:
 - utter_ask_car_form_body_type
@@ -141,3 +153,5 @@ actions:
 - query_car
 - dispatch_car_explanations
 - query_model_class
+- action_query_model
+- action_reset_slot
