@@ -39,7 +39,7 @@ stories:
   - active_loop: null
   - action: utter_submit
   - action: utter_car_slots
-  - action: query_car # query db here
+  - action: action_query_car # query db here
   - intent: goodbye
   - action: utter_goodbye
 
@@ -68,7 +68,7 @@ stories:
   - active_loop: null
   - action: utter_submit
   - action: utter_car_slots
-  - action: query_car # query db here
+  - action: action_query_car # query db here
   - intent: goodbye
   - action: utter_goodbye
 
@@ -97,7 +97,7 @@ stories:
   - active_loop: null
   - action: utter_submit
   - action: utter_car_slots
-  - action: query_car # query db here
+  - action: action_query_car # query db here
   - intent: goodbye
   - action: utter_goodbye
 
@@ -193,7 +193,7 @@ stories:
   - active_loop: null
   - action: utter_submit
   - action: utter_car_slots
-  - action: query_car # query db here
+  - action: action_query_car # query db here
 
 # buy car unhappy path
 - story: interactive_story_3
@@ -282,7 +282,7 @@ stories:
   - active_loop: null
   - action: utter_submit
   - action: utter_car_slots
-  - action: query_car # query db here
+  - action: action_query_car # query db here
 
 # buy car unhappy/happy path
 - story: user asks about form slots (form interruption)
@@ -295,7 +295,7 @@ stories:
   - slot_was_set:
     - requested_slot: body_type
   - intent: ask_body_type
-  - action: dispatch_car_explanations
+  - action: action_dispatch_car_explanations
   - action: car_form
   - slot_was_set:
     - requested_slot: body_type
@@ -306,7 +306,7 @@ stories:
   - slot_was_set:
     - requested_slot: engine
   - intent: ask_engine
-  - action: dispatch_car_explanations
+  - action: action_dispatch_car_explanations
   - action: car_form
   - slot_was_set:
     - requested_slot: engine
@@ -317,7 +317,7 @@ stories:
   - slot_was_set:
     - requested_slot: fuel
   - intent: ask_fuel
-  - action: dispatch_car_explanations
+  - action: action_dispatch_car_explanations
   - action: car_form
   - slot_was_set:
     - requested_slot: fuel
@@ -328,7 +328,7 @@ stories:
   - slot_was_set:
     - requested_slot: transmission
   - intent: ask_fuel
-  - action: dispatch_car_explanations
+  - action: action_dispatch_car_explanations
   - action: car_form
   - slot_was_set:
     - requested_slot: transmission
@@ -341,7 +341,7 @@ stories:
   - active_loop: null
   - action: utter_submit
   - action: utter_car_slots
-  - action: query_car # query db here
+  - action: action_query_car # query db here
 
 # happy path: query what models are in a given model class
 - story: user asks what models are in a given class
@@ -349,7 +349,7 @@ stories:
   - intent: greet
   - action: utter_greet
   - intent: query_model_class
-  - action: query_model_class # query db here
+  - action: action_query_model_class # query db here
 
 # happy path: user selects a preference and asks about a model class
 - story: user wants to buy a car and the form is successful
@@ -388,8 +388,83 @@ stories:
   - active_loop: null
   - action: utter_submit
   - action: utter_car_slots
-  - action: query_car # query db here
+  - action: action_query_car # query db here
   - intent: query_model_class
-  - action: query_model_class # query db here
+  - action: action_query_model_class # query db here
   - intent: goodbye
   - action: utter_goodbye
+
+# happy path: user wants to get more details on a model
+- story: user wants to get more details on a model
+  steps:
+  - intent: query_model
+  - action: model_form
+  - active_loop: model_form
+  - slot_was_set:
+    - requested_slot: model_name
+  - slot_was_set:
+    - model_name: "A 100 d"
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_query_model
+  - action: action_reset_slot
+
+# happy path: user wants to get more details on a model model
+- story: user wants to get more details on a model repeatedly
+  steps:
+  - intent: query_model
+  - action: model_form
+  - active_loop: model_form
+  - slot_was_set:
+    - requested_slot: model_name
+  - slot_was_set:
+    - model_name: "C 220 d"
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_query_model
+  - action: action_reset_slot
+  - intent: query_model
+  - action: model_form
+  - active_loop: model_form
+  - slot_was_set:
+    - requested_slot: model_name
+  - slot_was_set:
+    - model_name: "C 63 S"
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_query_model
+  - action: action_reset_slot
+  - intent: query_model
+  - action: model_form
+  - active_loop: model_form
+  - slot_was_set:
+    - requested_slot: model_name
+  - slot_was_set:
+    - model_name: "E 300 de"
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_query_model
+  - action: action_reset_slot
+
+# happy path: user booking a test drive
+- story: user wants to book a test drive
+  steps:
+  - intent: booktest
+  - action: booktest_model_form
+  - active_loop: booktest_model_form
+  - slot_was_set:
+    - requested_slot: booktest_model_name
+  - slot_was_set:
+    - model_name: "S 580 4MATIC"
+  - slot_was_set:
+    - requested_slot: booktest_location
+  - slot_was_set:
+    - model_name: "Bristol"
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_booktest

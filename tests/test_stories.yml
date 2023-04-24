@@ -1,91 +1,203 @@
-#### This file contains tests to evaluate that your bot behaves as expected.
-#### If you want to learn more, please see the docs: https://rasa.com/docs/rasa/testing-your-assistant
-
 stories:
-- story: happy path 1
+- story: happy path 1 - buy car
   steps:
   - user: |
       hello there!
     intent: greet
   - action: utter_greet
   - user: |
-      amazing
-    intent: mood_great
-  - action: utter_happy
+      I want to buy car
+    intent: buy_car
+  - action: car_form
+  - active_loop: car_form
+  - user: |
+      i want a [suv](body_type) mercedes
+    intent: inform
+  - action: car_form
+  - user: |
+      I would like a [combustion engine](engine_type) powered car
+    intent: inform
+  - action: car_form
+  - user: |
+      I want a [petrol](fuel_type) powered mercedes benz
+    intent: inform
+  - action: car_form
+  - user: |
+      [auto](transmission)
+    intent: inform
+  - action: car_form
+  - active_loop: null
+  - action: utter_submit
+  - action: utter_car_slots
+  - action: action_query_car
 
-- story: happy path 2
+- story: happy path 2 - buy car
   steps:
   - user: |
-      hello there!
-    intent: greet
-  - action: utter_greet
+      gimme a mercedes
+    intent: buy_car
+  - action: car_form
+  - active_loop: car_form
   - user: |
-      amazing
-    intent: mood_great
-  - action: utter_happy
+      [saloon](body_type)
+    intent: inform
+  - action: car_form
   - user: |
-      bye-bye!
-    intent: goodbye
-  - action: utter_goodbye
-
-- story: sad path 1
+      i want a [plug-in hybrid](engine_type) car
+    intent: inform
+  - action: car_form
+  - user: |
+      id like a [diesel](fuel_type) mercedes
+    intent: inform
+  - action: car_form
+  - user: |
+      i want [automatic](transmission)
+    intent: inform
+  - action: car_form
+  - active_loop: null
+  - action: utter_submit
+  - action: utter_car_slots
+  - action: action_query_car
+  
+- story: happy path 3 - buy car but electric
   steps:
   - user: |
-      hello
-    intent: greet
-  - action: utter_greet
+      hi i want to buy a car
+    intent: buy_car
+  - action: car_form
+  - active_loop: car_form
   - user: |
-      not good
-    intent: mood_unhappy
-  - action: utter_cheer_up
-  - action: utter_did_that_help
+      i want [estate](body_type) car
+    intent: inform
+  - action: car_form
   - user: |
-      yes
-    intent: affirm
-  - action: utter_happy
+      give me [eletric](engine_type) car
+    intent: inform
+  - action: car_form
+  - active_loop: null
+  - action: utter_submit
+  - action: utter_car_slots
+  - action: action_query_car
 
-- story: sad path 2
+- story: happy path 4 - get info on a model
   steps:
   - user: |
-      hello
-    intent: greet
-  - action: utter_greet
+      please provide more detail
+    intent: query_model
+  - action: model_form
+  - active_loop: model_form
   - user: |
-      not good
-    intent: mood_unhappy
-  - action: utter_cheer_up
-  - action: utter_did_that_help
-  - user: |
-      not really
-    intent: deny
-  - action: utter_goodbye
+      C 220 d
+  - action: model_form
+  - active_loop: null
+  - action: action_query_model
+  - action: action_reset_slot
 
-- story: sad path 3
+- story: happy path 5 - get info on a model repeatedly
   steps:
   - user: |
-      hi
-    intent: greet
-  - action: utter_greet
+      please provide more detail
+    intent: query_model
+  - action: model_form
+  - active_loop: model_form
   - user: |
-      very terrible
-    intent: mood_unhappy
-  - action: utter_cheer_up
-  - action: utter_did_that_help
+      C 220 d
+  - action: model_form
+  - active_loop: null
+  - action: action_query_model
+  - action: action_reset_slot
   - user: |
-      no
-    intent: deny
-  - action: utter_goodbye
+      tell me more
+    intent: query_model
+  - action: model_form
+  - active_loop: model_form
+  - user: |
+      E 200
+  - action: model_form
+  - active_loop: null
+  - action: action_query_model
+  - action: action_reset_slot
+  - user: |
+      give me more details
+    intent: query_model
+  - action: model_form
+  - active_loop: model_form
+  - user: |
+      E 400 d 4MATIC
+  - action: model_form
+  - active_loop: null
+  - action: action_query_model
+  - action: action_reset_slot
 
-- story: say goodbye
+- story: unhappy path 1 - interruption bot challenge
   steps:
   - user: |
-      bye-bye!
-    intent: goodbye
-  - action: utter_goodbye
-
-- story: bot challenge
-  steps:
+      yo gimme a car
+    intent: buy_car
+  - action: car_form
+  - active_loop: car_form
   - user: |
-      are you a bot?
+      i want [estate](body_type) car
+    intent: inform
+  - action: car_form
+  - user: |
+      are you a human
     intent: bot_challenge
   - action: utter_iamabot
+  - action: car_form
+  - user: |
+      give me [eletric](engine_type) car
+    intent: inform
+  - action: car_form
+  - active_loop: null
+  - action: utter_submit
+  - action: utter_car_slots
+  - action: action_query_car
+
+- story: unhappy path 2 - interruption ask more info
+  steps:
+  - user: |
+      yo gimme a car
+    intent: buy_car
+  - action: car_form
+  - active_loop: car_form
+  - user: |
+      what body types do you have
+    intent: ask_body_type
+  - action: action_dispatch_car_explanations
+  - action: car_form
+  - user: |
+      [hatchback](body_type)
+    intent: inform
+  - action: car_form
+  - user: |
+      what engines do you offer
+    intent: ask_engine
+  - action: action_dispatch_car_explanations
+  - action: car_form
+  - user: |
+      give me [mild hybrid](engine_type) car
+    intent: inform
+  - action: car_form
+  - user: |
+      what fuels do you have
+    intent: ask_fuel
+  - action: action_dispatch_car_explanations
+  - action: car_form
+  - user: |
+      id like a [petrol](fuel_type) car
+    intent: inform
+  - action: car_form
+  - user: |
+      what transmissions can you offer
+    intent: ask_transmission
+  - action: action_dispatch_car_explanations
+  - action: car_form
+  - user: |
+      i want a [auto](transmission) mercedes
+    intent: inform
+  - action: car_form
+  - active_loop: null
+  - action: utter_submit
+  - action: utter_car_slots
+  - action: action_query_car

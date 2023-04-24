@@ -1,0 +1,191 @@
+version: "3.1"
+nlu:
+- intent: bot_query
+  examples: |
+    - what models do you offer?
+- intent: bot_challenge
+  examples: |
+    - are you a human?
+- intent: query_model
+  examples: |
+    - what configurations does a model have
+    - tell me more about this car
+- intent: deny
+  examples: |
+    - no way
+- intent: ask_body_type
+  examples: |
+    - What is body type?
+    - explain body type
+- intent: ask_engine
+  examples: |
+    - Which engines do you offer
+    - i do not know what engine is
+- intent: ask_fuel
+  examples: |
+    - What is a fuel?
+    - what fuels are available
+- intent: ask_transmission
+  examples: |
+    - explain transmission
+    - I don't understand transmission
+- intent: stop
+  examples: |
+    - stop the form
+    - please stop
+- intent: affirm
+  examples: |
+    - yep
+    - correct
+- intent: goodbye
+  examples: |
+    - cu
+    - good night
+- intent: greet
+  examples: |
+    - let's go
+    - goodevening
+    - good afternoon
+- intent: buy_car
+  examples: |
+    - i want a car
+    - i am interested in Mercedes-Benz car models
+    - can you recommend me a car
+    - can i buy a car
+- intent: query_model_class
+  examples: |
+    - What [E-Class](model_class_name) models do you have
+    - what [GLB](model_class_name) can you offer
+    - which [SL](model_class_name) are available
+    - what [EQE](model_class_name) can you offer
+    - which [EQB](model_class_name) are available
+    - which [SL](model_class_name) you got
+    - which [A-Class](model_class_name) you got
+    - which [EQC](model_class_name) you got
+    - which [GLS](model_class_name) are available
+    - what [SL](model_class_name) can you offer
+    - which [B-Class](model_class_name) are available
+    - which [S-Class](model_class_name) are available
+    - which [A-Class](model_class_name) are available
+    - which [GLS](model_class_name) you got
+    - what [GT](model_class_name) can you offer
+- intent: inform
+  examples: |
+    - i would like a [coupe](body_type) model
+    - [saloon](body_type)
+    - I want a [coupe](body_type) Mercedes model
+    - I would like a [plug-in](engine) car
+    - i want a car with a [phev](engine)
+    - i'd like a Mercedes model that is [manual](transmission)
+    - I want a [plug in](engine) Mercedes
+    - [hatchback](body_type)
+    - I want a [hatchback](body_type) Mercedes model
+    - i want a car with a [PHEV](engine)
+    - i'd like a vehicle powered by a [mild hybrid](engine)
+    - I want a [electric](engine) Mercedes
+    - i would like a [SUV](body_type) model
+    - I want a [saloon](body_type) Mercedes model
+    - i want a car with a [bahv](engine)
+    - i would like a [city car](body_type)
+    - I want a [car without roof](body_type) Mercedes
+    - I am looking for a Mercedes with a [combustion engine](engine)
+    - I want my car to be a [SUV](body_type)
+    - [automatic](transmission)
+    - i want a vehicle with a [petrol](fuel) engine
+    - [city car](body_type)
+    - [auto](transmission)
+    - [diesel](fuel)
+    - [small car](body_type)
+    - i want a car with a [plug-in](engine) hybrid
+    - I am looking for a Mercedes with a [bahv](engine)
+    - I want a [SUV](body_type) Mercedes model
+    - I am looking for a Mercedes with a [PHEV](engine)
+    - I want my car to be a [estate](body_type)
+    - i would like a [small car](body_type)
+    - i'd like a [SUV](body_type) car
+    - i'd like a [estate](body_type) car
+- synonym: saloon
+  examples: |
+    - long car
+- synonym: SUV
+  examples: |
+    - big car
+    - suv
+    - sports utility vehicle
+- synonym: hatchback
+  examples: |
+    - hatch
+    - small car
+    - city car
+- synonym: estate
+  examples: |
+    - family car
+- synonym: cabriolet
+  examples: |
+    - cabrio
+    - car without roof
+- synonym: combustion engine
+  examples: |
+    - combustion
+- synonym: mild hybrid
+  examples: |
+    - BAHV
+    - bahv
+- synonym: plug-in hybrid
+  examples: |
+    - PHEV
+    - phev
+    - plug in
+- synonym: petrol
+  examples: |
+    - gas
+- synonym: automatic
+  examples: |
+    - auto
+- synonym: manual
+  examples: |
+    - el manuel
+- lookup: body_type
+  examples: |
+    - saloon
+    - SUV
+    - hatchback
+    - estate
+    - coupe
+    - cabriolet
+- lookup: engine
+  examples: |
+    - combustion engine
+    - mild hybrid
+    - plug-in hybrid
+    - electric
+- lookup: fuel
+  examples: |
+    - diesel
+    - petrol
+- lookup: transmission
+  examples: |
+    - automatic
+    - manual
+- lookup: model_class_name
+  examples: |
+    - A-Class
+    - B-Class
+    - C-Class
+    - E-Class
+    - S-Class
+    - G-Class
+    - EQA
+    - EQB
+    - EQC
+    - EQE
+    - EQS
+    - GLA
+    - GLB
+    - GLC
+    - GLE
+    - GLS
+    - CLA
+    - CLS
+    - GT
+    - SL

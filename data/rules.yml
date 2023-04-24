@@ -12,10 +12,25 @@ rules:
   - intent: bot_challenge
   - action: utter_iamabot
 
+- rule: Say you're welcome anytime the user says thank you
+  steps:
+  - intent: thankyou
+  - action: utter_yourwelcome
+
 - rule: Explain capabilities when user asks
   steps:
   - intent: bot_query
   - action: utter_capability
+
+- rule: Default out of scope request
+  steps:
+  - intent: out_of_scope
+  - action: utter_out_of_scope
+
+- rule: Handle chitchat about trivia
+  steps:
+  - intent: chitchat_mercedes
+  - action: action_chitchat_mercedes
 
 - rule: Activate Car Form
   steps:
@@ -49,7 +64,7 @@ rules:
   - active_loop: car_form
   steps:
   - intent: ask_body_type
-  - action: dispatch_car_explanations
+  - action: action_dispatch_car_explanations
   - action: car_form
   - active_loop: car_form
 
@@ -58,7 +73,7 @@ rules:
   - active_loop: car_form
   steps:
   - intent: ask_engine
-  - action: dispatch_car_explanations
+  - action: action_dispatch_car_explanations
   - action: car_form
   - active_loop: car_form
 
@@ -67,7 +82,7 @@ rules:
   - active_loop: car_form
   steps:
   - intent: ask_fuel
-  - action: dispatch_car_explanations
+  - action: action_dispatch_car_explanations
   - action: car_form
   - active_loop: car_form
 
@@ -76,6 +91,38 @@ rules:
   - active_loop: car_form
   steps:
   - intent: ask_transmission
-  - action: dispatch_car_explanations
+  - action: action_dispatch_car_explanations
   - action: car_form
   - active_loop: car_form
+
+- rule: Activate model form
+  steps:
+  - intent: query_model
+  - action: model_form
+  - active_loop: model_form
+
+- rule: Submit model form
+  condition:
+  - active_loop: model_form
+  steps:
+  - action: model_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  wait_for_user_input: false
+
+- rule: Activate book model form
+  steps:
+  - intent: booktest
+  - action: booktest_model_form
+  - active_loop: booktest_model_form
+
+- rule: Submit book model form
+  condition:
+  - active_loop: booktest_model_form
+  steps:
+  - action: booktest_model_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  wait_for_user_input: false
