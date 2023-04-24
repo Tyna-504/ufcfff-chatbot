@@ -5,6 +5,7 @@ from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.types import DomainDict
 import sqlite3
 from fuzzywuzzy import process
+import random
 
 ALLOWED_CAR_BODY_TYPES = ["saloon", "suv", "hatchback", "estate", "coupe", "cabriolet"]
 ALLOWED_CAR_ENGINES = ["combustion engine", "mild hybrid", "plug-in hybrid", "electric"]
@@ -106,7 +107,7 @@ class ValidateCarForm(FormValidationAction):
 # Custom action to handle asking about required slots (form interruption)
 class DispatchCarExplanations(Action):
     def name(self) -> Text:
-        return "dispatch_car_explanations"
+        return "action_dispatch_car_explanations"
 
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
@@ -185,7 +186,7 @@ class DbQuerying:
 # Custom action for querying the db - recommendations
 class QueryCar(Action):
     def name(self) -> Text:
-        return "query_car"
+        return "action_query_car"
     
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
@@ -264,7 +265,7 @@ class QueryCar(Action):
 class QueryModelClass(Action):
 
     def name(self) -> Text:
-        return "query_model_class"
+        return "action_query_model_class"
 
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
@@ -359,3 +360,27 @@ class ResetSlotAction(Action):
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
         return [SlotSet("model_name", None)]
+    
+# Custom action to handle chitchat about the organisation
+class ChitchatMercedes(Action):
+    def name(self) -> Text:
+        return "action_chitchat_mercedes"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        
+        # List of trivia
+        TRIVIA = ["The first car with a petrol-powered internal combustion engine was developed by Karl Benz in 1886, which led to the foundation of Mercedes-Benz.",
+                   "The three-pointed star in the Mercedes-Benz logo represents the company's aim for universal domination on land, sea, and air.", 
+                   "Mercedes-Benz developed the first ever crumple zone in the 1950s, which is now a standard safety feature in all cars.", 
+                   "Mercedes-Benz is the oldest car manufacturer still in existence.", 
+                   "Mercedes-Benz has been involved in Formula One racing since the 1950s and has won eight World Championships.", 
+                   "The Mercedes-Benz S-Class has long been considered the gold standard for luxury sedans.",
+                   "Mercedes-Benz was the first car manufacturer to offer an airbag as standard equipment in 1981.",
+                   "The Mercedes-Benz G-Class, which was originally developed as a military vehicle in the 1970s, is still in production today and is one of the most capable off-road vehicles in the world."]
+
+        # Pick a random trivia and dispatch it to the user
+        random_trivia = random.choice(TRIVIA)
+        dispatcher.utter_message(random_trivia)
+        return []

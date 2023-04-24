@@ -1,0 +1,108 @@
+version: "3.1"
+stories:
+- story: happy path 1 - buy car (.\tests\test_stories.yml)
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: buy_car
+  - action: car_form
+  - active_loop: car_form
+  - slot_was_set:
+    - body_type: suv
+  - slot_was_set:
+    - transmission: auto
+  - active_loop: null
+  - action: utter_submit
+  - action: utter_car_slots
+  - action: action_query_car
+- story: happy path 2 - buy car (.\tests\test_stories.yml)
+  steps:
+  - intent: buy_car
+  - action: car_form
+  - active_loop: car_form
+  - slot_was_set:
+    - body_type: saloon
+  - slot_was_set:
+    - transmission: automatic
+  - active_loop: null
+  - action: utter_submit
+  - action: utter_car_slots
+  - action: action_query_car
+- story: happy path 3 - buy car but electric (.\tests\test_stories.yml)
+  steps:
+  - intent: buy_car
+  - action: car_form
+  - active_loop: car_form
+  - slot_was_set:
+    - body_type: estate
+  - active_loop: null
+  - action: utter_submit
+  - action: utter_car_slots
+  - action: action_query_car
+- story: happy path 4 - get info on a model (.\tests\test_stories.yml)
+  steps:
+  - intent: query_model
+  - action: model_form
+  - active_loop: model_form
+  - active_loop: null
+  - action: action_query_model
+  - action: action_reset_slot
+- story: happy path 5 - get info on a model repeatedly (.\tests\test_stories.yml)
+  steps:
+  - intent: query_model
+  - action: model_form
+  - active_loop: model_form
+  - active_loop: null
+  - action: action_query_model
+  - action: action_reset_slot
+  - intent: query_model
+  - action: model_form
+  - active_loop: model_form
+  - active_loop: null
+  - action: action_query_model
+  - action: action_reset_slot
+  - intent: query_model
+  - action: model_form
+  - active_loop: model_form
+  - active_loop: null
+  - action: action_query_model
+  - action: action_reset_slot
+- story: unhappy path 1 - interruption bot challenge (.\tests\test_stories.yml)
+  steps:
+  - intent: buy_car
+  - action: car_form
+  - active_loop: car_form
+  - slot_was_set:
+    - body_type: estate
+  - intent: bot_challenge
+  - action: utter_iamabot
+  - action: car_form
+  - active_loop: null
+  - action: utter_submit
+  - action: utter_car_slots
+  - action: action_query_car
+- story: unhappy path 2 - interruption ask more info (.\tests\test_stories.yml)
+  steps:
+  - intent: buy_car
+  - action: car_form
+  - active_loop: car_form
+  - intent: ask_body_type
+  - action: action_dispatch_car_explanations
+  - action: car_form
+  - slot_was_set:
+    - body_type: hatchback
+  - intent: ask_engine
+  - action: action_dispatch_car_explanations
+  - action: car_form
+  - intent: ask_fuel
+  - action: action_dispatch_car_explanations
+  - action: car_form
+  - intent: ask_transmission
+  - action: action_dispatch_car_explanations
+  - action: car_form
+  - slot_was_set:
+    - transmission: auto
+  - active_loop: null
+  - action: utter_submit
+  - action: utter_car_slots
+  - action: action_query_car

@@ -1,0 +1,205 @@
+[
+  {
+    "text": "i want a suv mercedes",
+    "entities": [
+      {
+        "text": "i want a suv mercedes",
+        "start": 9,
+        "end": 12,
+        "entity": "body_type",
+        "value": "suv"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "I would like a combustion engine powered car",
+    "entities": [
+      {
+        "text": "I would like a combustion engine powered car",
+        "start": 15,
+        "end": 32,
+        "entity": "engine_type",
+        "value": "combustion engine"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "I want a petrol powered mercedes benz",
+    "entities": [
+      {
+        "text": "I want a petrol powered mercedes benz",
+        "start": 9,
+        "end": 15,
+        "entity": "fuel_type",
+        "value": "petrol"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "auto",
+    "entities": [
+      {
+        "text": "auto",
+        "start": 0,
+        "end": 4,
+        "entity": "transmission",
+        "value": "auto"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "saloon",
+    "entities": [
+      {
+        "start": 0,
+        "end": 6,
+        "value": "saloon",
+        "entity": "body_type"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "i want a plug-in hybrid car",
+    "entities": [
+      {
+        "text": "i want a plug-in hybrid car",
+        "start": 9,
+        "end": 23,
+        "entity": "engine_type",
+        "value": "plug-in hybrid"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "id like a diesel mercedes",
+    "entities": [
+      {
+        "text": "id like a diesel mercedes",
+        "start": 10,
+        "end": 16,
+        "entity": "fuel_type",
+        "value": "diesel"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "i want automatic",
+    "entities": [
+      {
+        "start": 7,
+        "end": 16,
+        "value": "automatic",
+        "entity": "transmission"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "i want estate car",
+    "entities": [
+      {
+        "start": 7,
+        "end": 13,
+        "value": "estate",
+        "entity": "body_type"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "give me eletric car",
+    "entities": [
+      {
+        "text": "give me eletric car",
+        "start": 8,
+        "end": 15,
+        "entity": "engine_type",
+        "value": "eletric"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "i want estate car",
+    "entities": [
+      {
+        "start": 7,
+        "end": 13,
+        "value": "estate",
+        "entity": "body_type"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "give me eletric car",
+    "entities": [
+      {
+        "text": "give me eletric car",
+        "start": 8,
+        "end": 15,
+        "entity": "engine_type",
+        "value": "eletric"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "hatchback",
+    "entities": [
+      {
+        "start": 0,
+        "end": 9,
+        "value": "hatchback",
+        "entity": "body_type"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "give me mild hybrid car",
+    "entities": [
+      {
+        "text": "give me mild hybrid car",
+        "start": 8,
+        "end": 19,
+        "entity": "engine_type",
+        "value": "mild hybrid"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "id like a petrol car",
+    "entities": [
+      {
+        "text": "id like a petrol car",
+        "start": 10,
+        "end": 16,
+        "entity": "fuel_type",
+        "value": "petrol"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "i want a auto mercedes",
+    "entities": [
+      {
+        "text": "i want a auto mercedes",
+        "start": 9,
+        "end": 13,
+        "entity": "transmission",
+        "value": "auto"
+      }
+    ],
+    "predicted_entities": []
+  }
+]

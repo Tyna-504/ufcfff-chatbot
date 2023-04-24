@@ -244,6 +244,10 @@ nlu:
     - provide more details
     - i want to know more
     - give me more details
+    - can you give me more detail
+    - can you elaborate
+    - can you please elaborate
+    - please provide more
 
 - intent: inform
   examples: |
@@ -413,6 +417,19 @@ nlu:
     - i'd like a Mercedes model that is [manual](transmission)
     - [manual](transmission)
 
+- intent: booktest
+  examples: |
+    - I would like to book a test drive
+    - can i book a test drive for this model
+    - is this car available for a drive
+    - i want a test drive
+    - can i test the car
+    - I want to test the car
+    - Id like to test the Mercedes
+    - please i want a test
+    - is testing available
+    - how do I test
+
 - intent: stop
   examples: |
     - stop
@@ -498,3 +515,31 @@ nlu:
     - what models do you offer?
     - who are you?
     - what am i talking to
+
+- intent: thankyou
+  examples: |
+    - thank you
+    - thank you very much
+    - thx
+    - thanks
+    - thanks bro
+    - thank you bot
+    - thans ever so much
+
+- intent: chitchat_mercedes
+  examples: |
+    - What is Mercedes Benz
+    - tell me about the organisation
+    - what is some fun trivia
+    - what do you know about Mercedes Benz
+    - give me some trivia about the company
+    - what is some fun trivia about mercedes benz
+    - is mercedes benz a fun company
+    - tell me about Mercedes-Benz 
+
+- intent: out_of_scope
+  examples: |
+    - can you create an appointment in my calendar?
+    - create an appointment
+    - access my calendar and put a session in
+    - can you tell me what the best car is?

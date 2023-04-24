@@ -1,0 +1,2059 @@
+[
+  {
+    "text": "i would like a long car",
+    "entities": [
+      {
+        "start": 15,
+        "end": 23,
+        "value": "long car",
+        "entity": "body_type"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "body_type",
+        "start": 15,
+        "end": 23,
+        "confidence_entity": 0.9995630383491516,
+        "value": "saloon",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "I want a long car Mercedes car",
+    "entities": [
+      {
+        "start": 9,
+        "end": 17,
+        "value": "long car",
+        "entity": "body_type"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "body_type",
+        "start": 9,
+        "end": 17,
+        "confidence_entity": 0.9995437264442444,
+        "value": "saloon",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "i'd like a long car",
+    "entities": [
+      {
+        "start": 11,
+        "end": 19,
+        "value": "long car",
+        "entity": "body_type"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "body_type",
+        "start": 11,
+        "end": 19,
+        "confidence_entity": 0.9995588660240173,
+        "value": "saloon",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "I want my car to be a long car",
+    "entities": [
+      {
+        "start": 22,
+        "end": 30,
+        "value": "long car",
+        "entity": "body_type"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "body_type",
+        "start": 22,
+        "end": 30,
+        "confidence_entity": 0.9993155002593994,
+        "value": "saloon",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "long car",
+    "entities": [
+      {
+        "start": 0,
+        "end": 8,
+        "value": "long car",
+        "entity": "body_type"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "body_type",
+        "start": 0,
+        "end": 8,
+        "confidence_entity": 0.9995337724685669,
+        "value": "saloon",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "i would like a big car",
+    "entities": [
+      {
+        "start": 15,
+        "end": 22,
+        "value": "big car",
+        "entity": "body_type"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "body_type",
+        "start": 15,
+        "end": 22,
+        "confidence_entity": 0.9987890124320984,
+        "value": "SUV",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "I want a big car",
+    "entities": [
+      {
+        "start": 9,
+        "end": 16,
+        "value": "big car",
+        "entity": "body_type"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "body_type",
+        "start": 9,
+        "end": 16,
+        "confidence_entity": 0.9991975426673889,
+        "value": "SUV",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "i'd like a big car",
+    "entities": [
+      {
+        "start": 11,
+        "end": 18,
+        "value": "big car",
+        "entity": "body_type"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "body_type",
+        "start": 11,
+        "end": 18,
+        "confidence_entity": 0.9989080429077148,
+        "value": "SUV",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "big car",
+    "entities": [
+      {
+        "start": 0,
+        "end": 7,
+        "value": "big car",
+        "entity": "body_type"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "body_type",
+        "start": 0,
+        "end": 7,
+        "confidence_entity": 0.9989472031593323,
+        "value": "SUV",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "i would like a sports utility vehicle",
+    "entities": [
+      {
+        "start": 15,
+        "end": 37,
+        "value": "sports utility vehicle",
+        "entity": "body_type"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "body_type",
+        "start": 15,
+        "end": 37,
+        "confidence_entity": 0.9986217021942139,
+        "value": "SUV",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "I want a sports utility vehicle",
+    "entities": [
+      {
+        "start": 9,
+        "end": 31,
+        "value": "sports utility vehicle",
+        "entity": "body_type"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "body_type",
+        "start": 9,
+        "end": 31,
+        "confidence_entity": 0.9986481070518494,
+        "value": "SUV",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "i'd like a sports utility vehicle",
+    "entities": [
+      {
+        "start": 11,
+        "end": 33,
+        "value": "sports utility vehicle",
+        "entity": "body_type"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "body_type",
+        "start": 11,
+        "end": 33,
+        "confidence_entity": 0.9986661672592163,
+        "value": "SUV",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "sports utility vehicle",
+    "entities": [
+      {
+        "start": 0,
+        "end": 22,
+        "value": "sports utility vehicle",
+        "entity": "body_type"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "body_type",
+        "start": 0,
+        "end": 22,
+        "confidence_entity": 0.998576283454895,
+        "value": "SUV",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "i would like a small car",
+    "entities": [
+      {
+        "start": 15,
+        "end": 24,
+        "value": "small car",
+        "entity": "body_type"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "body_type",
+        "start": 15,
+        "end": 24,
+        "confidence_entity": 0.998977541923523,
+        "value": "hatchback",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "I want a small car Mercedes",
+    "entities": [
+      {
+        "start": 9,
+        "end": 18,
+        "value": "small car",
+        "entity": "body_type"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "body_type",
+        "start": 9,
+        "end": 18,
+        "confidence_entity": 0.9982414245605469,
+        "value": "hatchback",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "small car",
+    "entities": [
+      {
+        "start": 0,
+        "end": 9,
+        "value": "small car",
+        "entity": "body_type"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "body_type",
+        "start": 0,
+        "end": 9,
+        "confidence_entity": 0.9990905523300171,
+        "value": "hatchback",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "i would like a hatch",
+    "entities": [
+      {
+        "start": 15,
+        "end": 20,
+        "value": "hatch",
+        "entity": "body_type"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "body_type",
+        "start": 15,
+        "end": 20,
+        "confidence_entity": 0.9996799230575562,
+        "value": "hatchback",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "I want a hatch Mercedes",
+    "entities": [
+      {
+        "start": 9,
+        "end": 14,
+        "value": "hatch",
+        "entity": "body_type"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "body_type",
+        "start": 9,
+        "end": 14,
+        "confidence_entity": 0.9997156262397766,
+        "value": "hatchback",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "hatch",
+    "entities": [
+      {
+        "start": 0,
+        "end": 5,
+        "value": "hatch",
+        "entity": "body_type"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "body_type",
+        "start": 0,
+        "end": 5,
+        "confidence_entity": 0.9996371269226074,
+        "value": "hatchback",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "i would like a city car",
+    "entities": [
+      {
+        "start": 15,
+        "end": 23,
+        "value": "city car",
+        "entity": "body_type"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "body_type",
+        "start": 15,
+        "end": 23,
+        "confidence_entity": 0.998559296131134,
+        "value": "hatchback",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "I want a city car Mercedes",
+    "entities": [
+      {
+        "start": 9,
+        "end": 17,
+        "value": "city car",
+        "entity": "body_type"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "body_type",
+        "start": 9,
+        "end": 17,
+        "confidence_entity": 0.9973118305206299,
+        "value": "hatchback",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "city car",
+    "entities": [
+      {
+        "start": 0,
+        "end": 8,
+        "value": "city car",
+        "entity": "body_type"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "body_type",
+        "start": 0,
+        "end": 8,
+        "confidence_entity": 0.9987340569496155,
+        "value": "hatchback",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "i would like a family car",
+    "entities": [
+      {
+        "start": 15,
+        "end": 25,
+        "value": "family car",
+        "entity": "body_type"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "body_type",
+        "start": 15,
+        "end": 25,
+        "confidence_entity": 0.9989724159240723,
+        "value": "estate",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "I want a family car Mercedes",
+    "entities": [
+      {
+        "start": 9,
+        "end": 19,
+        "value": "family car",
+        "entity": "body_type"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "body_type",
+        "start": 9,
+        "end": 19,
+        "confidence_entity": 0.9982442855834961,
+        "value": "estate",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "family car",
+    "entities": [
+      {
+        "start": 0,
+        "end": 10,
+        "value": "family car",
+        "entity": "body_type"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "body_type",
+        "start": 0,
+        "end": 10,
+        "confidence_entity": 0.9991081357002258,
+        "value": "estate",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "i would like a cabrio",
+    "entities": [
+      {
+        "start": 15,
+        "end": 21,
+        "value": "cabrio",
+        "entity": "body_type"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "body_type",
+        "start": 15,
+        "end": 21,
+        "confidence_entity": 0.9997370839118958,
+        "value": "cabriolet",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "I want a cabrio Mercedes",
+    "entities": [
+      {
+        "start": 9,
+        "end": 15,
+        "value": "cabrio",
+        "entity": "body_type"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "body_type",
+        "start": 9,
+        "end": 15,
+        "confidence_entity": 0.9997245669364929,
+        "value": "cabriolet",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "cabrio",
+    "entities": [
+      {
+        "start": 0,
+        "end": 6,
+        "value": "cabrio",
+        "entity": "body_type"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "body_type",
+        "start": 0,
+        "end": 6,
+        "confidence_entity": 0.9994091987609863,
+        "value": "cabriolet",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "i would like a car without roof",
+    "entities": [
+      {
+        "start": 15,
+        "end": 31,
+        "value": "car without roof",
+        "entity": "body_type"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "body_type",
+        "start": 15,
+        "end": 31,
+        "confidence_entity": 0.9960022568702698,
+        "value": "cabriolet",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "I want a car without roof Mercedes",
+    "entities": [
+      {
+        "start": 9,
+        "end": 25,
+        "value": "car without roof",
+        "entity": "body_type"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "body_type",
+        "start": 9,
+        "end": 25,
+        "confidence_entity": 0.9963938593864441,
+        "value": "cabriolet",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "car without roof",
+    "entities": [
+      {
+        "start": 0,
+        "end": 16,
+        "value": "car without roof",
+        "entity": "body_type"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "body_type",
+        "start": 0,
+        "end": 16,
+        "confidence_entity": 0.997025191783905,
+        "value": "cabriolet",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "combustion",
+    "entities": [
+      {
+        "start": 0,
+        "end": 10,
+        "value": "combustion",
+        "entity": "engine"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "engine",
+        "start": 0,
+        "end": 10,
+        "confidence_entity": 0.9042907357215881,
+        "value": "combustion engine",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "I'm looking for a car with an BAHV engine",
+    "entities": [
+      {
+        "start": 30,
+        "end": 34,
+        "value": "BAHV",
+        "entity": "engine"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "engine",
+        "start": 30,
+        "end": 34,
+        "confidence_entity": 0.9997424483299255,
+        "value": "mild hybrid",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "i want a car with a BAHV",
+    "entities": [
+      {
+        "start": 20,
+        "end": 24,
+        "value": "BAHV",
+        "entity": "engine"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "engine",
+        "start": 20,
+        "end": 24,
+        "confidence_entity": 0.9998488426208496,
+        "value": "mild hybrid",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "i'd like a vehicle powered by a BAHV",
+    "entities": [
+      {
+        "start": 32,
+        "end": 36,
+        "value": "BAHV",
+        "entity": "engine"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "engine",
+        "start": 32,
+        "end": 36,
+        "confidence_entity": 0.9998346567153931,
+        "value": "mild hybrid",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "I would like a BAHV car",
+    "entities": [
+      {
+        "start": 15,
+        "end": 19,
+        "value": "BAHV",
+        "entity": "engine"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "engine",
+        "start": 15,
+        "end": 19,
+        "confidence_entity": 0.9997894167900085,
+        "value": "mild hybrid",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "I want a BAHV Mercedes",
+    "entities": [
+      {
+        "start": 9,
+        "end": 13,
+        "value": "BAHV",
+        "entity": "engine"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "engine",
+        "start": 9,
+        "end": 13,
+        "confidence_entity": 0.9997089505195618,
+        "value": "mild hybrid",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "I am looking for a Mercedes with a BAHV",
+    "entities": [
+      {
+        "start": 35,
+        "end": 39,
+        "value": "BAHV",
+        "entity": "engine"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "engine",
+        "start": 35,
+        "end": 39,
+        "confidence_entity": 0.9998365640640259,
+        "value": "mild hybrid",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "BAHV",
+    "entities": [
+      {
+        "start": 0,
+        "end": 4,
+        "value": "BAHV",
+        "entity": "engine"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "engine",
+        "start": 0,
+        "end": 4,
+        "confidence_entity": 0.9997761845588684,
+        "value": "mild hybrid",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "I'm looking for a car with an bahv engine",
+    "entities": [
+      {
+        "start": 30,
+        "end": 34,
+        "value": "bahv",
+        "entity": "engine"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "engine",
+        "start": 30,
+        "end": 34,
+        "confidence_entity": 0.9997912049293518,
+        "value": "mild hybrid",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "i want a car with a bahv",
+    "entities": [
+      {
+        "start": 20,
+        "end": 24,
+        "value": "bahv",
+        "entity": "engine"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "engine",
+        "start": 20,
+        "end": 24,
+        "confidence_entity": 0.9998416900634766,
+        "value": "mild hybrid",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "i'd like a vehicle powered by a bahv",
+    "entities": [
+      {
+        "start": 32,
+        "end": 36,
+        "value": "bahv",
+        "entity": "engine"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "engine",
+        "start": 32,
+        "end": 36,
+        "confidence_entity": 0.9998369216918945,
+        "value": "mild hybrid",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "I would like a bahv car",
+    "entities": [
+      {
+        "start": 15,
+        "end": 19,
+        "value": "bahv",
+        "entity": "engine"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "engine",
+        "start": 15,
+        "end": 19,
+        "confidence_entity": 0.9998223185539246,
+        "value": "mild hybrid",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "I want a bahv Mercedes",
+    "entities": [
+      {
+        "start": 9,
+        "end": 13,
+        "value": "bahv",
+        "entity": "engine"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "engine",
+        "start": 9,
+        "end": 13,
+        "confidence_entity": 0.9997093081474304,
+        "value": "mild hybrid",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "I am looking for a Mercedes with a bahv",
+    "entities": [
+      {
+        "start": 35,
+        "end": 39,
+        "value": "bahv",
+        "entity": "engine"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "engine",
+        "start": 35,
+        "end": 39,
+        "confidence_entity": 0.9998418092727661,
+        "value": "mild hybrid",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "bahv",
+    "entities": [
+      {
+        "start": 0,
+        "end": 4,
+        "value": "bahv",
+        "entity": "engine"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "engine",
+        "start": 0,
+        "end": 4,
+        "confidence_entity": 0.9997841715812683,
+        "value": "mild hybrid",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "I'm looking for a car with an plug-in hybrid engine",
+    "entities": [
+      {
+        "start": 30,
+        "end": 37,
+        "value": "plug-in",
+        "entity": "engine"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "engine",
+        "start": 30,
+        "end": 37,
+        "confidence_entity": 0.9990180730819702,
+        "value": "plug-in",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "engine",
+        "start": 30,
+        "end": 44,
+        "value": "plug-in hybrid",
+        "extractor": "RegexEntityExtractor"
+      }
+    ]
+  },
+  {
+    "text": "i want a car with a plug-in hybrid",
+    "entities": [
+      {
+        "start": 20,
+        "end": 27,
+        "value": "plug-in",
+        "entity": "engine"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "engine",
+        "start": 20,
+        "end": 27,
+        "confidence_entity": 0.9990530610084534,
+        "value": "plug-in",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "engine",
+        "start": 20,
+        "end": 34,
+        "value": "plug-in hybrid",
+        "extractor": "RegexEntityExtractor"
+      }
+    ]
+  },
+  {
+    "text": "i'd like a vehicle powered by a plug-in",
+    "entities": [
+      {
+        "start": 32,
+        "end": 39,
+        "value": "plug-in",
+        "entity": "engine"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "engine",
+        "start": 32,
+        "end": 39,
+        "confidence_entity": 0.9995229244232178,
+        "value": "plug-in",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "I would like a plug-in car",
+    "entities": [
+      {
+        "start": 15,
+        "end": 22,
+        "value": "plug-in",
+        "entity": "engine"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "engine",
+        "start": 15,
+        "end": 22,
+        "confidence_entity": 0.9994502663612366,
+        "value": "plug-in",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "I want a plug-in Mercedes",
+    "entities": [
+      {
+        "start": 9,
+        "end": 16,
+        "value": "plug-in",
+        "entity": "engine"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "engine",
+        "start": 9,
+        "end": 16,
+        "confidence_entity": 0.999075174331665,
+        "value": "plug-in",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "I am looking for a Mercedes with a plug-in",
+    "entities": [
+      {
+        "start": 35,
+        "end": 42,
+        "value": "plug-in",
+        "entity": "engine"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "engine",
+        "start": 35,
+        "end": 42,
+        "confidence_entity": 0.999550998210907,
+        "value": "plug-in",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "plug-in",
+    "entities": [
+      {
+        "start": 0,
+        "end": 7,
+        "value": "plug-in",
+        "entity": "engine"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "engine",
+        "start": 0,
+        "end": 7,
+        "confidence_entity": 0.9994877576828003,
+        "value": "plug-in",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "I'm looking for a car with an PHEV engine",
+    "entities": [
+      {
+        "start": 30,
+        "end": 34,
+        "value": "PHEV",
+        "entity": "engine"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "engine",
+        "start": 30,
+        "end": 34,
+        "confidence_entity": 0.9996926784515381,
+        "value": "plug-in hybrid",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "i want a car with a PHEV",
+    "entities": [
+      {
+        "start": 20,
+        "end": 24,
+        "value": "PHEV",
+        "entity": "engine"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "engine",
+        "start": 20,
+        "end": 24,
+        "confidence_entity": 0.9997856020927429,
+        "value": "plug-in hybrid",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "i'd like a vehicle powered by a PHEV",
+    "entities": [
+      {
+        "start": 32,
+        "end": 36,
+        "value": "PHEV",
+        "entity": "engine"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "engine",
+        "start": 32,
+        "end": 36,
+        "confidence_entity": 0.9997779726982117,
+        "value": "plug-in hybrid",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "I would like a PHEV car",
+    "entities": [
+      {
+        "start": 15,
+        "end": 19,
+        "value": "PHEV",
+        "entity": "engine"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "engine",
+        "start": 15,
+        "end": 19,
+        "confidence_entity": 0.9997285008430481,
+        "value": "plug-in hybrid",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "I want a PHEV Mercedes",
+    "entities": [
+      {
+        "start": 9,
+        "end": 13,
+        "value": "PHEV",
+        "entity": "engine"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "engine",
+        "start": 9,
+        "end": 13,
+        "confidence_entity": 0.9995712637901306,
+        "value": "plug-in hybrid",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "I am looking for a Mercedes with a PHEV",
+    "entities": [
+      {
+        "start": 35,
+        "end": 39,
+        "value": "PHEV",
+        "entity": "engine"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "engine",
+        "start": 35,
+        "end": 39,
+        "confidence_entity": 0.999786913394928,
+        "value": "plug-in hybrid",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "PHEV",
+    "entities": [
+      {
+        "start": 0,
+        "end": 4,
+        "value": "PHEV",
+        "entity": "engine"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "engine",
+        "start": 0,
+        "end": 4,
+        "confidence_entity": 0.9996883869171143,
+        "value": "plug-in hybrid",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "I'm looking for a car with an phev engine",
+    "entities": [
+      {
+        "start": 30,
+        "end": 34,
+        "value": "phev",
+        "entity": "engine"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "engine",
+        "start": 30,
+        "end": 34,
+        "confidence_entity": 0.999723494052887,
+        "value": "plug-in hybrid",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "i want a car with a phev",
+    "entities": [
+      {
+        "start": 20,
+        "end": 24,
+        "value": "phev",
+        "entity": "engine"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "engine",
+        "start": 20,
+        "end": 24,
+        "confidence_entity": 0.9997686743736267,
+        "value": "plug-in hybrid",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "i'd like a vehicle powered by a phev",
+    "entities": [
+      {
+        "start": 32,
+        "end": 36,
+        "value": "phev",
+        "entity": "engine"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "engine",
+        "start": 32,
+        "end": 36,
+        "confidence_entity": 0.999767005443573,
+        "value": "plug-in hybrid",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "I would like a phev car",
+    "entities": [
+      {
+        "start": 15,
+        "end": 19,
+        "value": "phev",
+        "entity": "engine"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "engine",
+        "start": 15,
+        "end": 19,
+        "confidence_entity": 0.9997561573982239,
+        "value": "plug-in hybrid",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "I want a phev Mercedes",
+    "entities": [
+      {
+        "start": 9,
+        "end": 13,
+        "value": "phev",
+        "entity": "engine"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "engine",
+        "start": 9,
+        "end": 13,
+        "confidence_entity": 0.9995444416999817,
+        "value": "plug-in hybrid",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "I am looking for a Mercedes with a phev",
+    "entities": [
+      {
+        "start": 35,
+        "end": 39,
+        "value": "phev",
+        "entity": "engine"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "engine",
+        "start": 35,
+        "end": 39,
+        "confidence_entity": 0.9997809529304504,
+        "value": "plug-in hybrid",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "phev",
+    "entities": [
+      {
+        "start": 0,
+        "end": 4,
+        "value": "phev",
+        "entity": "engine"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "engine",
+        "start": 0,
+        "end": 4,
+        "confidence_entity": 0.9996914863586426,
+        "value": "plug-in hybrid",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "I'm looking for a car with an plug in hybrid engine",
+    "entities": [
+      {
+        "start": 30,
+        "end": 37,
+        "value": "plug in",
+        "entity": "engine"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "engine",
+        "start": 30,
+        "end": 37,
+        "confidence_entity": 0.999322772026062,
+        "value": "plug-in hybrid",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "i want a car with a plug in",
+    "entities": [
+      {
+        "start": 20,
+        "end": 27,
+        "value": "plug in",
+        "entity": "engine"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "engine",
+        "start": 20,
+        "end": 27,
+        "confidence_entity": 0.9985059499740601,
+        "value": "plug-in hybrid",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "i'd like a vehicle powered by a plug in",
+    "entities": [
+      {
+        "start": 32,
+        "end": 39,
+        "value": "plug in",
+        "entity": "engine"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "engine",
+        "start": 32,
+        "end": 39,
+        "confidence_entity": 0.9980217218399048,
+        "value": "plug-in hybrid",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "I would like a plug in car",
+    "entities": [
+      {
+        "start": 15,
+        "end": 22,
+        "value": "plug in",
+        "entity": "engine"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "engine",
+        "start": 15,
+        "end": 22,
+        "confidence_entity": 0.9995768666267395,
+        "value": "plug-in hybrid",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "I want a plug in Mercedes",
+    "entities": [
+      {
+        "start": 9,
+        "end": 16,
+        "value": "plug in",
+        "entity": "engine"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "engine",
+        "start": 9,
+        "end": 16,
+        "confidence_entity": 0.9976823329925537,
+        "value": "plug-in hybrid",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "I am looking for a Mercedes with a plug in hybrid engine",
+    "entities": [
+      {
+        "start": 35,
+        "end": 42,
+        "value": "plug in",
+        "entity": "engine"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "engine",
+        "start": 35,
+        "end": 42,
+        "confidence_entity": 0.9992988109588623,
+        "value": "plug-in hybrid",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "plug in",
+    "entities": [
+      {
+        "start": 0,
+        "end": 7,
+        "value": "plug in",
+        "entity": "engine"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "engine",
+        "start": 0,
+        "end": 7,
+        "confidence_entity": 0.9983147382736206,
+        "value": "plug-in hybrid",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "I prefer a car with an auto transmission",
+    "entities": [
+      {
+        "start": 23,
+        "end": 27,
+        "value": "auto",
+        "entity": "transmission"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "transmission",
+        "start": 23,
+        "end": 27,
+        "confidence_entity": 0.9994298815727234,
+        "value": "automatic",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "I'm interested in an auto car",
+    "entities": [
+      {
+        "start": 21,
+        "end": 25,
+        "value": "auto",
+        "entity": "transmission"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "transmission",
+        "start": 21,
+        "end": 25,
+        "confidence_entity": 0.9994055032730103,
+        "value": "automatic",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "i want an auto Mercedes",
+    "entities": [
+      {
+        "start": 10,
+        "end": 14,
+        "value": "auto",
+        "entity": "transmission"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "transmission",
+        "start": 10,
+        "end": 14,
+        "confidence_entity": 0.9990658164024353,
+        "value": "automatic",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "i'd like a Mercedes model that is auto",
+    "entities": [
+      {
+        "start": 34,
+        "end": 38,
+        "value": "auto",
+        "entity": "transmission"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "transmission",
+        "start": 34,
+        "end": 38,
+        "confidence_entity": 0.9989537000656128,
+        "value": "automatic",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "I want a auto shifting gear",
+    "entities": [
+      {
+        "start": 9,
+        "end": 13,
+        "value": "auto",
+        "entity": "transmission"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "transmission",
+        "start": 9,
+        "end": 13,
+        "confidence_entity": 0.9992522597312927,
+        "value": "automatic",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "auto",
+    "entities": [
+      {
+        "start": 0,
+        "end": 4,
+        "value": "auto",
+        "entity": "transmission"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "transmission",
+        "start": 0,
+        "end": 4,
+        "confidence_entity": 0.9986768364906311,
+        "value": "automatic",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "I prefer a car with an el manuel transmission",
+    "entities": [
+      {
+        "start": 23,
+        "end": 32,
+        "value": "el manuel",
+        "entity": "transmission"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "transmission",
+        "start": 23,
+        "end": 32,
+        "confidence_entity": 0.9979528188705444,
+        "value": "manual",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "I'm interested in an el manuel car",
+    "entities": [
+      {
+        "start": 21,
+        "end": 30,
+        "value": "el manuel",
+        "entity": "transmission"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "transmission",
+        "start": 21,
+        "end": 30,
+        "confidence_entity": 0.9984808564186096,
+        "value": "manual",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "i want an el manuel Mercedes",
+    "entities": [
+      {
+        "start": 10,
+        "end": 19,
+        "value": "el manuel",
+        "entity": "transmission"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "transmission",
+        "start": 10,
+        "end": 19,
+        "confidence_entity": 0.9972297549247742,
+        "value": "manual",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "i'd like a Mercedes model that is el manuel",
+    "entities": [
+      {
+        "start": 34,
+        "end": 43,
+        "value": "el manuel",
+        "entity": "transmission"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "transmission",
+        "start": 34,
+        "end": 43,
+        "confidence_entity": 0.9976776242256165,
+        "value": "manual",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "I want a el manuel shifting gear",
+    "entities": [
+      {
+        "start": 9,
+        "end": 18,
+        "value": "el manuel",
+        "entity": "transmission"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "transmission",
+        "start": 9,
+        "end": 18,
+        "confidence_entity": 0.996239423751831,
+        "value": "manual",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "el manuel",
+    "entities": [
+      {
+        "start": 0,
+        "end": 9,
+        "value": "el manuel",
+        "entity": "transmission"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "transmission",
+        "start": 0,
+        "end": 9,
+        "confidence_entity": 0.9952394962310791,
+        "value": "manual",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  }
+]

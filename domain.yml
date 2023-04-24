@@ -5,22 +5,24 @@ session_config:
 
 intents:
 - affirm
-- bot_challenge
-- bot_query
-- buy_car
 - deny
 - goodbye
 - greet
+- thankyou
+- chitchat_mercedes
+- bot_challenge
+- bot_query
+- buy_car
 - inform
 - stop
-- request_car_form
-- query_car
 - ask_body_type
 - ask_engine
 - ask_fuel
 - ask_transmission
 - query_model_class
 - query_model
+- booktest
+- out_of_scope
 
 entities:
 - body_type
@@ -39,6 +41,10 @@ forms:
   model_form:
     required_slots:
     - model_name
+  booktest_model_form:
+    required_slots:
+    - booktest_model_name
+    - booktest_location
 
 slots:
   body_type: #slot 1
@@ -91,12 +97,30 @@ slots:
       conditions:
         - active_loop: model_form
           requested_slot: model_name
+  booktest_model_name: #slot 6
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_text
+      conditions:
+        - active_loop: booktest_model_form
+          requested_slot: booktest_model_name
+  booktest_location: #slot 7
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_text
+      conditions:
+        - active_loop: booktest_model_form
+          requested_slot: booktest_location
 
 responses:
   utter_greet:
   - text: Hello, I am a virtual Mercedes-Benz car selling assitant. How can I help you?
   utter_goodbye:
   - text: Goodbye, thank you for using the Mercedes chatbot!
+  utter_yourwelcome:
+  - text: You are welcome. Let me know if I can help you with anything else.
   utter_iamabot:
   - text: I am a bot here to support you with communicating with Mercedes-Benz UK. I am powered by Rasa.
   utter_capability:
@@ -136,6 +160,14 @@ responses:
   - text: What transmission are you looking for?
   utter_ask_model_name:
   - text: Please provide the full model name you would like to know more about.
+  utter_ask_booktest_model_name:
+  - text: Please provide the full model name you would like to book a test drive for.
+  utter_ask_booktest_location:
+  - text: Please provide the city where you would like to book a test drive.
+  utter_booktest:
+  - text: "The {booktest_model_name} is available for a test drive in your city. Please call the following number to book a test drive/: 0080097777777"
+  utter_out_of_scope:
+  - text: I apologise, this feature is not available at the moment. I will do my best to help you with that in the future. Is there anything else I can do?
 
 actions:
 - utter_ask_car_form_body_type
@@ -150,8 +182,9 @@ actions:
 - utter_iamabot
 - utter_submit
 - validate_car_form
-- query_car
-- dispatch_car_explanations
-- query_model_class
+- action_query_car
+- action_dispatch_car_explanations
+- action_query_model_class
 - action_query_model
 - action_reset_slot
+- action_chitchat_mercedes

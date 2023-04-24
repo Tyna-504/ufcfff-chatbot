@@ -1,0 +1,56 @@
+{
+  "transmission": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 29,
+    "confused_with": {}
+  },
+  "engine": {
+    "precision": 0.9883720930232558,
+    "recall": 1.0,
+    "f1-score": 0.9941520467836257,
+    "support": 85,
+    "confused_with": {}
+  },
+  "model_class_name": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 72,
+    "confused_with": {}
+  },
+  "body_type": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 98,
+    "confused_with": {}
+  },
+  "fuel": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 12,
+    "confused_with": {}
+  },
+  "micro avg": {
+    "precision": 0.9966329966329966,
+    "recall": 1.0,
+    "f1-score": 0.9983136593591906,
+    "support": 296
+  },
+  "macro avg": {
+    "precision": 0.9976744186046511,
+    "recall": 1.0,
+    "f1-score": 0.9988304093567251,
+    "support": 296
+  },
+  "weighted avg": {
+    "precision": 0.9966609050911377,
+    "recall": 1.0,
+    "f1-score": 0.9983206891101628,
+    "support": 296
+  },
+  "accuracy": 0.9994678020223523
+}
